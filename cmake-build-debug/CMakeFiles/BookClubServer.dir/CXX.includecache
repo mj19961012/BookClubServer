@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/CodeProjects/C_Projects/BookClubServer/main.cpp
+iostream
+-
+
+D:/CodeProjects/C_Projects/BookClubServer/unit/file_md5.cpp
+file_md5.hpp
+D:/CodeProjects/C_Projects/BookClubServer/unit/file_md5.hpp
+stdlib.h
+-
+string.h
+-
+iostream
+-
+
+D:/CodeProjects/C_Projects/BookClubServer/unit/file_md5.hpp
+string
+-
+

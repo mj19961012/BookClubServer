@@ -1,0 +1,1 @@
+-lmysqlclient -lsqlite3 -lpq D:/include/msys2/mingw64/lib/libboost_system-mt.dll.a -lws2_32 -lwsock32 -lstdc++fs -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

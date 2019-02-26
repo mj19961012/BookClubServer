@@ -1,0 +1,7 @@
+"C:\Program Files\JetBrains\CLion 2018.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" D:\CodeProjects\C_Projects\BookClubServer
+-- Boost version: 1.68.0
+-- Found the following Boost libraries:
+--   system
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/CodeProjects/C_Projects/BookClubServer/cmake-build-debug
