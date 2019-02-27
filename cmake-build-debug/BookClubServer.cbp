@@ -88,6 +88,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/CodeProjects/C_Projects/BookClubServer/BookClubConfig.h">
+			<Option target="BookClubServer"/>
+		</Unit>
 		<Unit filename="D:/CodeProjects/C_Projects/BookClubServer/BookClubEntity.hpp">
 			<Option target="BookClubServer"/>
 		</Unit>
