@@ -100,7 +100,9 @@ public:
     }
 
     bool init_database(std::string db_ip,std::string db_name,std::string username,std::string password);
-    user_info check_username_password(std::string username,std::string password);
+    user_info get_userinfo(std::string phone_number,std::string pass_word);
+    bool check_username_password(std::string phone_number,std::string pass_word);
+    bool insert_userinfo(user_info userinfo);
 private:
     bool m_is_db_inited;
     ormpp::dbng<ormpp::mysql> m_db;

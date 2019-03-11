@@ -1,7 +1,7 @@
 set(CMAKE_CXX_COMPILER "D:/include/msys2/mingw64/bin/g++.exe")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
-set(CMAKE_CXX_COMPILER_VERSION "8.2.0")
+set(CMAKE_CXX_COMPILER_VERSION "8.3.0")
 set(CMAKE_CXX_COMPILER_VERSION_INTERNAL "")
 set(CMAKE_CXX_COMPILER_WRAPPER "")
 set(CMAKE_CXX_STANDARD_COMPUTED_DEFAULT "14")
@@ -72,5 +72,5 @@ endif()
 
 
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;mingw32;gcc_s;gcc;moldname;mingwex;pthread;advapi32;shell32;user32;kernel32;mingw32;gcc_s;gcc;moldname;mingwex")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "D:/include/msys2/mingw64/lib/gcc/x86_64-w64-mingw32/8.2.0;D:/include/msys2/mingw64/lib/gcc;D:/include/msys2/mingw64/x86_64-w64-mingw32/lib;D:/include/msys2/mingw64/lib")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "D:/include/msys2/mingw64/lib/gcc/x86_64-w64-mingw32/8.3.0;D:/include/msys2/mingw64/lib/gcc;D:/include/msys2/mingw64/x86_64-w64-mingw32/lib;D:/include/msys2/mingw64/lib")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

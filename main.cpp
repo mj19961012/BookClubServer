@@ -3,31 +3,51 @@
 #include "BookClubConfig.h"
 #include "BookClubMannger.h"
 #include "DatabaseManager.h"
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_io.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+
+
 
 using namespace cinatra;
 int main (int argc,char ** argv)
 {
-    nanolog::initialize(nanolog::GuaranteedLogger(), "/tmp/", "nanolog", 1);
+//    nanolog::initialize(nanolog::GuaranteedLogger(), "/tmp/", "nanolog", 1);
+//
+//    int max_thread_num = std::thread::hardware_concurrency();
+//    http_server server(max_thread_num);
+//    server.listen(API_HOST_IP, API_HOST_PORT);
 
-    int max_thread_num = std::thread::hardware_concurrency();
-    http_server server(max_thread_num);
-    server.listen(API_HOST_IP, API_HOST_PORT);
+    DatabaseManager::getInstance()->init_database(API_DATABASE_IP,"bc_info_db","root","!Qaz1234");
+    user_info userinfo;
+    userinfo.phone_number = "19910120215";
+    userinfo.head_image = "/res/default.png";
+    userinfo.nick_name = "Jey";
+    userinfo.pass_word = "!Qaz1234";
+//    boost::uuids::uuid a_uuid = boost::uuids::string_generator()(userinfo.phone_number);
+    userinfo.user_id = "boost::uuids::to_string(a_uuid);";
+    userinfo.city = "成都";
+    userinfo.school = "加里敦大学";
 
-    DatabaseManager::getInstance()->init_database(API_DATABASE_IP,"root","!Qaz1234","bc_info_db");
+    std::cout << DatabaseManager::getInstance ()->insert_userinfo (userinfo) << std::endl;
+    std::cout << DatabaseManager::getInstance ()->check_username_password ("19910120215","!Qaz1234") << std::endl;
+    auto tmp_userinfo = DatabaseManager::getInstance ()->get_userinfo ("19910120215","!Qaz1234");
+    std::cout << tmp_userinfo.user_id << std::endl;
 
-    BookClubMannger BC_Manager;
-
-    try
-    {
-        server.set_http_handler<GET, POST>("/user_login", &BookClubMannger::user_login_handle, &BC_Manager);
-    }
-    catch (...)
-    {
-        std::cout << "error" << std::endl;
-    }
-
-
-    server.run();
+//    BookClubMannger BC_Manager;
+//
+//    try
+//    {
+//        server.set_http_handler<GET, POST>("/user_login", &BookClubMannger::user_login_handle, &BC_Manager);
+//    }
+//    catch (...)
+//    {
+//        std::cout << "error" << std::endl;
+//    }
+//
+//
+//    server.run();
+    std::getchar ();
     return 0;
 //    database::getInstance()->insert_user(1, "123", "123", 45, "123456789", "华北科技学院");
 //    database::getInstance()->delete_commodity(1);

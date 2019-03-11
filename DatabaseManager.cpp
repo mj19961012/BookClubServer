@@ -33,6 +33,10 @@ bool DatabaseManager::init_database(std::string db_ip,std::string db_name,std::s
         std::cout << "database_connect_error" << std::endl;
         return false;
     }
+    else
+    {
+        std::cout << "connect_success" << std::endl;
+    }
 
 //    struct user_info
 //    {
@@ -59,10 +63,10 @@ bool DatabaseManager::init_database(std::string db_ip,std::string db_name,std::s
     }
 }
 
-user_info DatabaseManager::check_username_password(std::string username,std::string password)
+user_info DatabaseManager::get_userinfo(std::string phone_number,std::string pass_word)
 {
     auto result = m_db.query<user_info>(
-            "select * from user_base_info where user_name = '" + username + "' and pass_word = '" + password + "'");
+            "select * from user_info where phone_number = '" + phone_number + "' and pass_word = '" + pass_word + "'");
 
     if(!result.empty())
     {
@@ -71,4 +75,24 @@ user_info DatabaseManager::check_username_password(std::string username,std::str
             return user;
         }
     }
+}
+
+bool DatabaseManager::check_username_password(std::string phone_number,std::string pass_word)
+{
+auto result = m_db.query<user_info>(
+        "select * from user_info where phone_number = '" + phone_number + "' and pass_word = '" + pass_word + "'");
+
+return result.empty ();
+}
+
+bool DatabaseManager::insert_userinfo(user_info userinfo)
+{
+    auto result = m_db.query<user_info>("select * from user_info where phone_number = '" + userinfo.phone_number + "'");
+
+    int res = INT_MIN;
+    if (result.empty())
+    {
+        res = m_db.insert<user_info>(userinfo);
+    }
+    return res == INT_MIN;
 }

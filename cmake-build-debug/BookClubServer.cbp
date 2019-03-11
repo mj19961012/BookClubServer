@@ -27,13 +27,13 @@
 					<Add directory="D:/CodeProjects/C_Projects/BookClubServer/ormpp"/>
 					<Add directory="D:/CodeProjects/C_Projects/BookClubServer/iguana"/>
 					<Add directory="D:/CodeProjects/C_Projects/BookClubServer/cinatra"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/../../../../include/c++/8.2.0"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/../../../../include/c++/8.2.0/x86_64-w64-mingw32"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/../../../../include/c++/8.2.0/backward"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/include"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/../../../../include"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/include-fixed"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/../../../../include/c++/8.3.0"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/../../../../include/c++/8.3.0/x86_64-w64-mingw32"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/../../../../include/c++/8.3.0/backward"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/include"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/../../../../include"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/include-fixed"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="D:/include/msys2/mingw64/bin/mingw32-make.exe -f &quot;D:/CodeProjects/C_Projects/BookClubServer/cmake-build-debug/Makefile&quot;  VERBOSE=1 BookClubServer"/>
@@ -52,13 +52,13 @@
 					<Add directory="D:/CodeProjects/C_Projects/BookClubServer/ormpp"/>
 					<Add directory="D:/CodeProjects/C_Projects/BookClubServer/iguana"/>
 					<Add directory="D:/CodeProjects/C_Projects/BookClubServer/cinatra"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/../../../../include/c++/8.2.0"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/../../../../include/c++/8.2.0/x86_64-w64-mingw32"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/../../../../include/c++/8.2.0/backward"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/include"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/../../../../include"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/include-fixed"/>
-					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.2.0/../../../../x86_64-w64-mingw32/include"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/../../../../include/c++/8.3.0"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/../../../../include/c++/8.3.0/x86_64-w64-mingw32"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/../../../../include/c++/8.3.0/backward"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/include"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/../../../../include"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/include-fixed"/>
+					<Add directory="D:/include/msys2/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.3.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="D:/include/msys2/mingw64/bin/mingw32-make.exe -f &quot;D:/CodeProjects/C_Projects/BookClubServer/cmake-build-debug/Makefile&quot;  VERBOSE=1 BookClubServer/fast"/>
