@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/BookClubServer.dir/main.cpp.obj"
   "CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj"
   "CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj"
+  "CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj"
   "BookClubServer.pdb"
   "BookClubServer.exe"
   "BookClubServer.exe.manifest"

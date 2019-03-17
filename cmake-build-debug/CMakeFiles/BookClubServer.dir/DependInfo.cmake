@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "D:/CodeProjects/C_Projects/BookClubServer/BookClubEntity.cpp" "D:/CodeProjects/C_Projects/BookClubServer/cmake-build-debug/CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj"
   "D:/CodeProjects/C_Projects/BookClubServer/BookClubMannger.cpp" "D:/CodeProjects/C_Projects/BookClubServer/cmake-build-debug/CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj"
   "D:/CodeProjects/C_Projects/BookClubServer/DatabaseManager.cpp" "D:/CodeProjects/C_Projects/BookClubServer/cmake-build-debug/CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj"
   "D:/CodeProjects/C_Projects/BookClubServer/main.cpp" "D:/CodeProjects/C_Projects/BookClubServer/cmake-build-debug/CMakeFiles/BookClubServer.dir/main.cpp.obj"

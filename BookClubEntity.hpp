@@ -4,6 +4,10 @@
 
 #ifndef BOOKCLUBSERVER_BOOKCLUBENTITY_HPP
 #define BOOKCLUBSERVER_BOOKCLUBENTITY_HPP
+#include "feather/ormpp/mysql.hpp"
+#include "feather/ormpp/dbng.hpp"
+#include "feather/ormpp/connection_pool.hpp"
+#include "json.hpp"
 #include <string>
 
 
@@ -20,6 +24,8 @@ struct user_info
     int funs_number;
     int article_number;
     int action_number;
+    friend void to_json(nlohmann::json &j,const user_info & user);
+    friend void from_json(const nlohmann::json &j,user_info & user);
 };
 REFLECTION(user_info, id, user_id, phone_number, nick_name, pass_word, school, city, head_image, funs_number, article_number, action_number);
 
@@ -38,8 +44,11 @@ struct article_info
     std::string first_file;
     std::string second_file;
     std::string third_file;
+
+    friend void to_json(nlohmann::json &j,const article_info & article);
+    friend void from_json(const nlohmann::json &j,article_info & article);
 };
-REFLECTION(user_info, id, article_id, article_title, article_content, author_id, article_type, release_time, supporting_number, page_view, comment_number, first_file, second_file, third_file);
+REFLECTION(article_info, id, article_id, article_title, article_content, author_id, article_type, release_time, supporting_number, page_view, comment_number, first_file, second_file, third_file);
 
 struct action_info
 {
@@ -56,6 +65,9 @@ struct action_info
     std::string third_file;
     std::string release_time;
     int page_view;
+
+    friend void to_json(nlohmann::json &j,const action_info & action);
+    friend void from_json(const nlohmann::json &j,action_info & action);
 };
 REFLECTION(action_info, id, action_id, action_title, action_content, action_city, begin_time, end_time, author_id, first_file, second_file, third_file, release_time, page_view);
 
@@ -69,6 +81,9 @@ struct message_info
     std::string session_id;
     std::string send_time;
     int message_state;
+
+    friend void to_json(nlohmann::json &j,const message_info & message);
+    friend void from_json(const nlohmann::json &j,message_info & message);
 };
 REFLECTION(message_info, id, message_id, messgae_body, sender_id, accepter_id, session_id, send_time, message_state);
 
@@ -78,6 +93,10 @@ struct interest_list
     std::string user_id;
     std::string follower_id;
     std::string date_subscribed;
+
+    friend void to_json(nlohmann::json &j,const interest_list & interest);
+    friend void from_json(const nlohmann::json &j,interest_list & interest);
 };
 REFLECTION(interest_list, id, user_id, follower_id, date_subscribed);
+
 #endif //BOOKCLUBSERVER_BOOKCLUBENTITY_HPP

@@ -122,6 +122,33 @@ BookClubServer/fast:
 	$(MAKE) -f CMakeFiles\BookClubServer.dir\build.make CMakeFiles/BookClubServer.dir/build
 .PHONY : BookClubServer/fast
 
+BookClubEntity.obj: BookClubEntity.cpp.obj
+
+.PHONY : BookClubEntity.obj
+
+# target to build an object file
+BookClubEntity.cpp.obj:
+	$(MAKE) -f CMakeFiles\BookClubServer.dir\build.make CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj
+.PHONY : BookClubEntity.cpp.obj
+
+BookClubEntity.i: BookClubEntity.cpp.i
+
+.PHONY : BookClubEntity.i
+
+# target to preprocess a source file
+BookClubEntity.cpp.i:
+	$(MAKE) -f CMakeFiles\BookClubServer.dir\build.make CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.i
+.PHONY : BookClubEntity.cpp.i
+
+BookClubEntity.s: BookClubEntity.cpp.s
+
+.PHONY : BookClubEntity.s
+
+# target to generate assembly for a file
+BookClubEntity.cpp.s:
+	$(MAKE) -f CMakeFiles\BookClubServer.dir\build.make CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.s
+.PHONY : BookClubEntity.cpp.s
+
 BookClubMannger.obj: BookClubMannger.cpp.obj
 
 .PHONY : BookClubMannger.obj
@@ -212,6 +239,9 @@ help:
 	@echo ... BookClubServer
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... BookClubEntity.obj
+	@echo ... BookClubEntity.i
+	@echo ... BookClubEntity.s
 	@echo ... BookClubMannger.obj
 	@echo ... BookClubMannger.i
 	@echo ... BookClubMannger.s

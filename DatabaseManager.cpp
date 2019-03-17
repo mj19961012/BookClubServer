@@ -96,3 +96,4 @@ bool DatabaseManager::insert_userinfo(user_info userinfo)
     }
     return res == INT_MIN;
 }
+

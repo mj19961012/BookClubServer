@@ -3,10 +3,6 @@
 #include "BookClubConfig.h"
 #include "BookClubMannger.h"
 #include "DatabaseManager.h"
-#include <boost/uuid/uuid.hpp>
-#include <boost/uuid/uuid_io.hpp>
-#include <boost/uuid/uuid_generators.hpp>
-
 
 
 using namespace cinatra;
@@ -29,10 +25,14 @@ int main (int argc,char ** argv)
     userinfo.city = "成都";
     userinfo.school = "加里敦大学";
 
-    std::cout << DatabaseManager::getInstance ()->insert_userinfo (userinfo) << std::endl;
-    std::cout << DatabaseManager::getInstance ()->check_username_password ("19910120215","!Qaz1234") << std::endl;
-    auto tmp_userinfo = DatabaseManager::getInstance ()->get_userinfo ("19910120215","!Qaz1234");
-    std::cout << tmp_userinfo.user_id << std::endl;
+//    std::cout << DatabaseManager::getInstance ()->insert_userinfo (userinfo) << std::endl;
+//    std::cout << DatabaseManager::getInstance ()->check_username_password ("19910120215","!Qaz1234") << std::endl;
+//    auto tmp_userinfo = DatabaseManager::getInstance ()->get_userinfo ("19910120215","!Qaz1234");
+//    std::cout << tmp_userinfo.user_id << std::endl;
+
+    nlohmann::json json_temp(userinfo);
+
+    std::cout << json_temp.dump() << std::endl;
 
 //    BookClubMannger BC_Manager;
 //
