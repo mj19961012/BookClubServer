@@ -3,6 +3,7 @@
 
 CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: ../BookClubEntity.cpp
 CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: ../BookClubEntity.hpp
+CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: ../feather/cinatra/nlohmann_json.hpp
 CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: ../feather/iguana/iguana/detail/itoa.hpp
 CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: ../feather/iguana/iguana/detail/string_stream.hpp
 CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: ../feather/iguana/iguana/detail/traits.hpp
@@ -14,7 +15,6 @@ CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: ../feather/ormpp/mysql.hpp
 CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: ../feather/ormpp/pg_types.h
 CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: ../feather/ormpp/type_mapping.hpp
 CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: ../feather/ormpp/utility.hpp
-CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: ../json.hpp
 
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../BookClubEntity.hpp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../BookClubMannger.cpp
@@ -57,6 +57,7 @@ CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/iguana/iguana/
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/iguana/iguana/detail/traits.hpp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/iguana/iguana/reflection.hpp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/inja/inja.hpp
+CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/inja/json.hpp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/ormpp/connection_pool.hpp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/ormpp/dbng.hpp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/ormpp/entity.hpp
@@ -64,11 +65,11 @@ CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/ormpp/mysql.hp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/ormpp/pg_types.h
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/ormpp/type_mapping.hpp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/ormpp/utility.hpp
-CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../json.hpp
 
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../BookClubEntity.hpp
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../DatabaseManager.cpp
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../DatabaseManager.h
+CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../feather/cinatra/nlohmann_json.hpp
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../feather/iguana/iguana/detail/itoa.hpp
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../feather/iguana/iguana/detail/string_stream.hpp
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../feather/iguana/iguana/detail/traits.hpp
@@ -80,7 +81,6 @@ CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../feather/ormpp/mysql.hp
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../feather/ormpp/pg_types.h
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../feather/ormpp/type_mapping.hpp
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../feather/ormpp/utility.hpp
-CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../json.hpp
 
 CMakeFiles/BookClubServer.dir/main.cpp.obj: ../BookClubConfig.h
 CMakeFiles/BookClubServer.dir/main.cpp.obj: ../BookClubEntity.hpp

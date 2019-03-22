@@ -7,7 +7,7 @@
 #include "feather/ormpp/mysql.hpp"
 #include "feather/ormpp/dbng.hpp"
 #include "feather/ormpp/connection_pool.hpp"
-#include "json.hpp"
+#include "feather/cinatra/nlohmann_json.hpp"
 #include <string>
 
 
