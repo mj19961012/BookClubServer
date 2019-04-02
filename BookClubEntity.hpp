@@ -99,4 +99,24 @@ struct interest_list
 };
 REFLECTION(interest_list, id, user_id, follower_id, date_subscribed);
 
+struct file_base_info
+{
+    int id;
+    std::string file_md5;
+    int file_size;
+    int file_type;
+    std::string local_path;
+};
+REFLECTION(file_base_info,id,file_md5,file_size,file_type,local_path);
+
+enum BC_FILE_TYPE
+{
+    FileTypeOther = 0,
+    FileTypeDir = 1,
+    FileTypeDoc = 2,
+    FileTypePicture = 3,
+    FileTypeAideo = 4,
+    FileTypeVideo = 5
+};
+
 #endif //BOOKCLUBSERVER_BOOKCLUBENTITY_HPP

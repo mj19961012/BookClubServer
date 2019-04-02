@@ -70,7 +70,7 @@ CMAKE_BINARY_DIR = D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug
 CMakeFiles/BookClubServer.dir/all:
 	$(MAKE) -f CMakeFiles\BookClubServer.dir\build.make CMakeFiles/BookClubServer.dir/depend
 	$(MAKE) -f CMakeFiles\BookClubServer.dir\build.make CMakeFiles/BookClubServer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5 "Built target BookClubServer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6 "Built target BookClubServer"
 .PHONY : CMakeFiles/BookClubServer.dir/all
 
 # Include target in all.
@@ -80,7 +80,7 @@ all: CMakeFiles/BookClubServer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/BookClubServer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles 6
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/BookClubServer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/BookClubServer.dir/rule

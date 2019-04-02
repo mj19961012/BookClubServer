@@ -109,13 +109,16 @@
 		<Unit filename="D:/CodeProjects/C_Projects/BookClubServer/DatabaseManager.h">
 			<Option target="BookClubServer"/>
 		</Unit>
+		<Unit filename="D:/CodeProjects/C_Projects/BookClubServer/FileMd5.cpp">
+			<Option target="BookClubServer"/>
+		</Unit>
+		<Unit filename="D:/CodeProjects/C_Projects/BookClubServer/FileMd5.hpp">
+			<Option target="BookClubServer"/>
+		</Unit>
 		<Unit filename="D:/CodeProjects/C_Projects/BookClubServer/json.hpp">
 			<Option target="BookClubServer"/>
 		</Unit>
 		<Unit filename="D:/CodeProjects/C_Projects/BookClubServer/main.cpp">
-			<Option target="BookClubServer"/>
-		</Unit>
-		<Unit filename="D:/CodeProjects/C_Projects/BookClubServer/md5.hpp">
 			<Option target="BookClubServer"/>
 		</Unit>
 		<Unit filename="D:/CodeProjects/C_Projects/BookClubServer/util.hpp">

@@ -70,10 +70,24 @@ CMakeFiles/BookClubServer.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BookClubServer.dir/main.cpp.s"
 	D:\include\msys2\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CodeProjects\C_Projects\BookClubServer\main.cpp -o CMakeFiles\BookClubServer.dir\main.cpp.s
 
+CMakeFiles/BookClubServer.dir/FileMd5.cpp.obj: CMakeFiles/BookClubServer.dir/flags.make
+CMakeFiles/BookClubServer.dir/FileMd5.cpp.obj: CMakeFiles/BookClubServer.dir/includes_CXX.rsp
+CMakeFiles/BookClubServer.dir/FileMd5.cpp.obj: ../FileMd5.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BookClubServer.dir/FileMd5.cpp.obj"
+	D:\include\msys2\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\BookClubServer.dir\FileMd5.cpp.obj -c D:\CodeProjects\C_Projects\BookClubServer\FileMd5.cpp
+
+CMakeFiles/BookClubServer.dir/FileMd5.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BookClubServer.dir/FileMd5.cpp.i"
+	D:\include\msys2\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\CodeProjects\C_Projects\BookClubServer\FileMd5.cpp > CMakeFiles\BookClubServer.dir\FileMd5.cpp.i
+
+CMakeFiles/BookClubServer.dir/FileMd5.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BookClubServer.dir/FileMd5.cpp.s"
+	D:\include\msys2\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\CodeProjects\C_Projects\BookClubServer\FileMd5.cpp -o CMakeFiles\BookClubServer.dir\FileMd5.cpp.s
+
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: CMakeFiles/BookClubServer.dir/flags.make
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: CMakeFiles/BookClubServer.dir/includes_CXX.rsp
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../DatabaseManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj"
 	D:\include\msys2\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\BookClubServer.dir\DatabaseManager.cpp.obj -c D:\CodeProjects\C_Projects\BookClubServer\DatabaseManager.cpp
 
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.i: cmake_force
@@ -87,7 +101,7 @@ CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.s: cmake_force
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: CMakeFiles/BookClubServer.dir/flags.make
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: CMakeFiles/BookClubServer.dir/includes_CXX.rsp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../BookClubMannger.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj"
 	D:\include\msys2\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\BookClubServer.dir\BookClubMannger.cpp.obj -c D:\CodeProjects\C_Projects\BookClubServer\BookClubMannger.cpp
 
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.i: cmake_force
@@ -101,7 +115,7 @@ CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.s: cmake_force
 CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: CMakeFiles/BookClubServer.dir/flags.make
 CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: CMakeFiles/BookClubServer.dir/includes_CXX.rsp
 CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj: ../BookClubEntity.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj"
 	D:\include\msys2\mingw64\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\BookClubServer.dir\BookClubEntity.cpp.obj -c D:\CodeProjects\C_Projects\BookClubServer\BookClubEntity.cpp
 
 CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.i: cmake_force
@@ -115,6 +129,7 @@ CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.s: cmake_force
 # Object files for target BookClubServer
 BookClubServer_OBJECTS = \
 "CMakeFiles/BookClubServer.dir/main.cpp.obj" \
+"CMakeFiles/BookClubServer.dir/FileMd5.cpp.obj" \
 "CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj" \
 "CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj" \
 "CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj"
@@ -123,6 +138,7 @@ BookClubServer_OBJECTS = \
 BookClubServer_EXTERNAL_OBJECTS =
 
 BookClubServer.exe: CMakeFiles/BookClubServer.dir/main.cpp.obj
+BookClubServer.exe: CMakeFiles/BookClubServer.dir/FileMd5.cpp.obj
 BookClubServer.exe: CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj
 BookClubServer.exe: CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj
 BookClubServer.exe: CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj
@@ -131,7 +147,7 @@ BookClubServer.exe: D:/include/msys2/mingw64/lib/libboost_system-mt.dll.a
 BookClubServer.exe: CMakeFiles/BookClubServer.dir/linklibs.rsp
 BookClubServer.exe: CMakeFiles/BookClubServer.dir/objects1.rsp
 BookClubServer.exe: CMakeFiles/BookClubServer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable BookClubServer.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\CodeProjects\C_Projects\BookClubServer\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable BookClubServer.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\BookClubServer.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

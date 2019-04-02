@@ -13,7 +13,11 @@ class BookClubMannger
 {
 public:
     void user_login_handle(const cinatra::request& req, cinatra::response& res);
+    void user_regist_handle(const cinatra::request& req, cinatra::response& res);
     void init_city_dictionary(const cinatra::request& req, cinatra::response& res);
+    void upload_simple_file(const cinatra::request& req, cinatra::response& res);
+    void download_simple_file(const cinatra::request& req, cinatra::response& res);
+    void get_file_info(const cinatra::request& req, cinatra::response& res);
 };
 
 

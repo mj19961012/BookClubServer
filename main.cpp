@@ -8,13 +8,13 @@
 using namespace cinatra;
 int main (int argc,char ** argv)
 {
-//    nanolog::initialize(nanolog::GuaranteedLogger(), "/tmp/", "nanolog", 1);
+    nanolog::initialize(nanolog::GuaranteedLogger(), "/tmp/", "nanolog", 1);
 //
-//    int max_thread_num = std::thread::hardware_concurrency();
-//    http_server server(max_thread_num);
-//    server.listen(API_HOST_IP, API_HOST_PORT);
+    int max_thread_num = std::thread::hardware_concurrency();
+    http_server server(max_thread_num);
+    server.listen(API_HOST_IP, API_HOST_PORT);
 //
-//    DatabaseManager::getInstance()->init_database(API_DATABASE_IP,"bc_info_db","root","!Qaz1234");
+    DatabaseManager::getInstance()->init_database(API_DATABASE_IP,"bc_info_db","root","!Qaz1234");
 //    user_info userinfo;
 //    userinfo.phone_number = "19910120215";
 //    userinfo.head_image = "/res/default.png";
@@ -33,19 +33,22 @@ int main (int argc,char ** argv)
 //
 //    std::cout << json_temp.dump() << std::endl;
 
-//    BookClubMannger BC_Manager;
-//
-//    try
-//    {
-//        server.set_http_handler<GET, POST>("/user_login", &BookClubMannger::user_login_handle, &BC_Manager);
-//    }
-//    catch (...)
-//    {
-//        std::cout << "error" << std::endl;
-//    }
-//
-//
-//    server.run();
+    BookClubMannger BC_Manager;
+
+    try
+    {
+        server.set_http_handler<GET, POST>("/client/user/login", &BookClubMannger::user_login_handle, &BC_Manager);
+        server.set_http_handler<GET, POST>("/client/user/regist", &BookClubMannger::user_regist_handle, &BC_Manager);
+        server.set_http_handler<GET, POST>("/init/city_dictionary", &BookClubMannger::init_city_dictionary, &BC_Manager);
+        server.set_http_handler<GET, POST>("/clint/file/upload", &BookClubMannger::upload_simple_file, &BC_Manager);
+        server.set_http_handler<GET, POST>("/clint/file/getinfo", &BookClubMannger::get_file_info, &BC_Manager);
+//        server.set_http_handler<GET, POST>("/clint/file/download", &BookClubMannger::download_simple_file, &BC_Manager);
+    }
+    catch (...)
+    {
+        std::cout << "error" << std::endl;
+    }
+    server.run();
 
 //    nlohmann::json json_city;
 //    std::ifstream file("../city.json");
@@ -63,7 +66,7 @@ int main (int argc,char ** argv)
     //std::cout << json_city.dump () << std::endl;
 
 
-    std::getchar ();
+//    std::getchar ();
     return 0;
 //    database::getInstance()->insert_user(1, "123", "123", 45, "123456789", "华北科技学院");
 //    database::getInstance()->delete_commodity(1);

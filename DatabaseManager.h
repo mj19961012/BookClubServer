@@ -22,7 +22,11 @@ public:
     bool init_database(std::string db_ip,std::string db_name,std::string username,std::string password);
     user_info get_userinfo(std::string phone_number,std::string pass_word);
     bool check_username_password(std::string phone_number,std::string pass_word);
+    bool check_username_exist(std::string phone_number);
     bool insert_userinfo(user_info userinfo);
+    bool check_file_is_exist(std::string filemd5);
+    file_base_info get_file_info_with_md5(std::string filemd5);
+    bool insert_file_base_info(file_base_info fileinfo);
 private:
     bool m_is_db_inited;
     ormpp::dbng<ormpp::mysql> m_db;

@@ -20,6 +20,7 @@ CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../BookClubEntity.hpp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../BookClubMannger.cpp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../BookClubMannger.h
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../DatabaseManager.h
+CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../FileMd5.hpp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/cinatra/connection.hpp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/cinatra/cookie.hpp
 CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj: ../feather/cinatra/define.h
@@ -81,6 +82,9 @@ CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../feather/ormpp/mysql.hp
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../feather/ormpp/pg_types.h
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../feather/ormpp/type_mapping.hpp
 CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj: ../feather/ormpp/utility.hpp
+
+CMakeFiles/BookClubServer.dir/FileMd5.cpp.obj: ../FileMd5.cpp
+CMakeFiles/BookClubServer.dir/FileMd5.cpp.obj: ../FileMd5.hpp
 
 CMakeFiles/BookClubServer.dir/main.cpp.obj: ../BookClubConfig.h
 CMakeFiles/BookClubServer.dir/main.cpp.obj: ../BookClubEntity.hpp

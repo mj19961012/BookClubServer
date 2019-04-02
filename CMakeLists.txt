@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(Boost 1.69 REQUIRED COMPONENTS system)
 
-set(SOURCE_FILES main.cpp BookClubEntity.hpp json.hpp md5.hpp util.hpp validate.hpp DatabaseManager.cpp DatabaseManager.h BookClubMannger.cpp BookClubMannger.h BookClubConfig.h BookClubEntity.cpp)
+set(SOURCE_FILES main.cpp BookClubEntity.hpp json.hpp FileMd5.hpp FileMd5.cpp util.hpp validate.hpp DatabaseManager.cpp DatabaseManager.h BookClubMannger.cpp BookClubMannger.h BookClubConfig.h BookClubEntity.cpp)
 
 INCLUDE_DIRECTORIES(
         ${CMAKE_SOURCE_DIR}/ormpp

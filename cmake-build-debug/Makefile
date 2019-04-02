@@ -203,6 +203,33 @@ DatabaseManager.cpp.s:
 	$(MAKE) -f CMakeFiles\BookClubServer.dir\build.make CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.s
 .PHONY : DatabaseManager.cpp.s
 
+FileMd5.obj: FileMd5.cpp.obj
+
+.PHONY : FileMd5.obj
+
+# target to build an object file
+FileMd5.cpp.obj:
+	$(MAKE) -f CMakeFiles\BookClubServer.dir\build.make CMakeFiles/BookClubServer.dir/FileMd5.cpp.obj
+.PHONY : FileMd5.cpp.obj
+
+FileMd5.i: FileMd5.cpp.i
+
+.PHONY : FileMd5.i
+
+# target to preprocess a source file
+FileMd5.cpp.i:
+	$(MAKE) -f CMakeFiles\BookClubServer.dir\build.make CMakeFiles/BookClubServer.dir/FileMd5.cpp.i
+.PHONY : FileMd5.cpp.i
+
+FileMd5.s: FileMd5.cpp.s
+
+.PHONY : FileMd5.s
+
+# target to generate assembly for a file
+FileMd5.cpp.s:
+	$(MAKE) -f CMakeFiles\BookClubServer.dir\build.make CMakeFiles/BookClubServer.dir/FileMd5.cpp.s
+.PHONY : FileMd5.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -248,6 +275,9 @@ help:
 	@echo ... DatabaseManager.obj
 	@echo ... DatabaseManager.i
 	@echo ... DatabaseManager.s
+	@echo ... FileMd5.obj
+	@echo ... FileMd5.i
+	@echo ... FileMd5.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
