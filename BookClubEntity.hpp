@@ -41,14 +41,14 @@ struct article_info
     int supporting_number;
     int page_view;
     int comment_number;
-    std::string first_file;
-    std::string second_file;
-    std::string third_file;
+//    std::string first_file;
+//    std::string second_file;
+//    std::string third_file;
 
     friend void to_json(nlohmann::json &j,const article_info & article);
     friend void from_json(const nlohmann::json &j,article_info & article);
 };
-REFLECTION(article_info, id, article_id, article_title, article_content, author_id, article_type, release_time, supporting_number, page_view, comment_number, first_file, second_file, third_file);
+REFLECTION(article_info, id, article_id, article_title, article_content, author_id, article_type, release_time, supporting_number, page_view, comment_number);
 
 struct action_info
 {

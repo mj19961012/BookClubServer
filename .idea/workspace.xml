@@ -13,38 +13,16 @@
   <component name="ChangeListManager">
     <list default="true" id="dc528e05-f533-44e5-8ad2-5e05a28fbf9d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookClubConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/BookClubConfig.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookClubEntity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BookClubEntity.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookClubEntity.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/BookClubEntity.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookClubMannger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/BookClubMannger.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookClubMannger.h" beforeDir="false" afterPath="$PROJECT_DIR$/BookClubMannger.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DatabaseManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseManager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DatabaseManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/BookClubServer.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/BookClubServer.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/BookClubServer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/BookClubServer.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/BookClubEntity.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/BookClubMannger.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/DatabaseManager.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/objects1.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/objects1.rsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/BookClubServer.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feather" beforeDir="false" afterPath="$PROJECT_DIR$/feather" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feather/cinatra" beforeDir="false" afterPath="$PROJECT_DIR$/feather/cinatra" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feather/cinatra/http_cache.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/feather/cinatra/http_cache.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feather/cinatra/session_manager.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/feather/cinatra/session_manager.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feather/cinatra/utils.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/feather/cinatra/utils.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feather/cinatra/uuid.h" beforeDir="false" afterPath="$PROJECT_DIR$/feather/cinatra/uuid.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,23 +41,24 @@
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="18" />
+          <entry key="project.open.time.6" value="19" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="1924" />
-          <entry key="h" value="280" />
-          <entry key="hpp" value="645" />
+          <entry key="cpp" value="1947" />
+          <entry key="h" value="308" />
+          <entry key="hpp" value="652" />
           <entry key="txt" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="25" />
-          <entry key="ObjectiveC" value="2849" />
+          <entry key="ObjectiveC" value="2907" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -108,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BookClubMannger.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="342">
               <caret line="18" column="29" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="29" />
             </state>
           </provider>
@@ -117,7 +96,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BookClubMannger.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
+            <state relative-caret-position="4237">
               <caret line="223" column="42" selection-start-line="223" selection-start-column="22" selection-end-line="223" selection-end-column="42" />
               <folding>
                 <element signature="e#38#66#0" expanded="true" />
@@ -129,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BookClubEntity.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2185">
-              <caret line="115" column="15" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="15" />
+            <state relative-caret-position="137">
+              <caret line="52" selection-start-line="52" selection-end-line="70" selection-end-column="2" />
               <folding>
                 <element signature="e#123#157#0" expanded="true" />
               </folding>
@@ -141,17 +120,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DatabaseManager.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="27" column="41" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="41" />
+            <state relative-caret-position="399">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="40" column="51" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="51" />
+            <state relative-caret-position="341">
+              <caret line="43" column="82" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="82" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
                 <marker date="1554215853729" expanded="true" signature="855:1162" ph="..." />
@@ -172,11 +151,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DatabaseManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="145" column="9" lean-forward="true" selection-start-line="145" selection-start-column="9" selection-end-line="145" selection-end-column="9" />
+            <state relative-caret-position="151">
+              <caret line="166" column="9" lean-forward="true" selection-start-line="166" selection-start-column="9" selection-end-line="166" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -184,8 +163,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BookClubEntity.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" column="48" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="48" />
+            <state relative-caret-position="521">
+              <caret line="125" column="7" selection-start-line="125" selection-start-column="7" selection-end-line="125" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -217,17 +196,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/util.hpp" />
-        <option value="$PROJECT_DIR$/BookClubEntity.cpp" />
         <option value="$PROJECT_DIR$/BookClubConfig.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/FileMd5.cpp" />
         <option value="$PROJECT_DIR$/FileMd5.hpp" />
-        <option value="$PROJECT_DIR$/BookClubEntity.hpp" />
-        <option value="$PROJECT_DIR$/DatabaseManager.h" />
-        <option value="$PROJECT_DIR$/DatabaseManager.cpp" />
         <option value="$PROJECT_DIR$/BookClubMannger.h" />
         <option value="$PROJECT_DIR$/BookClubMannger.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/DatabaseManager.h" />
+        <option value="$PROJECT_DIR$/BookClubEntity.cpp" />
+        <option value="$PROJECT_DIR$/BookClubEntity.hpp" />
+        <option value="$PROJECT_DIR$/DatabaseManager.cpp" />
       </list>
     </option>
   </component>
@@ -238,8 +217,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -333,22 +312,24 @@
       <workItem from="1554013311462" duration="4305000" />
       <workItem from="1554126450564" duration="693000" />
       <workItem from="1554212177041" duration="3162000" />
+      <workItem from="1554903705403" duration="599000" />
+      <workItem from="1554976441060" duration="7939000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68012000" />
+    <option name="totallyTimeSpent" value="76550000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16849016" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1750547" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2982456" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2982456" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.17872807" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -466,12 +447,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BookClubEntity.hpp">
+    <entry file="file://$PROJECT_DIR$/BookClubMannger.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2185">
-          <caret line="115" column="15" selection-start-line="115" selection-start-column="4" selection-end-line="115" selection-end-column="15" />
+        <state relative-caret-position="342">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BookClubMannger.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4237">
+          <caret line="223" column="42" selection-start-line="223" selection-start-column="22" selection-end-line="223" selection-end-column="42" />
           <folding>
-            <element signature="e#123#157#0" expanded="true" />
+            <element signature="e#38#66#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -483,13 +471,6 @@
           <folding>
             <element signature="e#38#60#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BookClubEntity.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="48" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -507,45 +488,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="43" column="82" selection-start-line="43" selection-start-column="67" selection-end-line="43" selection-end-column="82" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <marker date="1554215853729" expanded="true" signature="855:1162" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DatabaseManager.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="27" column="41" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="41" />
+        <state relative-caret-position="399">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BookClubEntity.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="125" column="7" selection-start-line="125" selection-start-column="7" selection-end-line="125" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BookClubEntity.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="52" selection-start-line="52" selection-end-line="70" selection-end-column="2" />
+          <folding>
+            <element signature="e#123#157#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DatabaseManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="145" column="9" lean-forward="true" selection-start-line="145" selection-start-column="9" selection-end-line="145" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BookClubMannger.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="223" column="42" selection-start-line="223" selection-start-column="22" selection-end-line="223" selection-end-column="42" />
-          <folding>
-            <element signature="e#38#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BookClubMannger.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="18" column="29" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="40" column="51" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <marker date="1554215853729" expanded="true" signature="855:1162" ph="..." />
-          </folding>
+        <state relative-caret-position="151">
+          <caret line="166" column="9" lean-forward="true" selection-start-line="166" selection-start-column="9" selection-end-line="166" selection-end-column="9" />
         </state>
       </provider>
     </entry>

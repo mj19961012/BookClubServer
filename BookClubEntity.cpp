@@ -77,10 +77,10 @@ void to_json(nlohmann::json &j,const article_info & article)
             {"release_time",article.release_time},
             {"supporting_number",article.supporting_number},
             {"page_view",article.page_view},
-            {"comment_number",article.comment_number},
-            {"first_file",article.first_file},
-            {"second_file",article.second_file},
-            {"third_file",article.third_file},
+            {"comment_number",article.comment_number}
+//            {"first_file",article.first_file},
+//            {"second_file",article.second_file},
+//            {"third_file",article.third_file},
     };
 }
 
@@ -122,18 +122,18 @@ void from_json(const nlohmann::json &j,article_info & article)
     {
         article.comment_number = j["comment_number"].get<int>();
     }
-    if(j.find("first_file") != j.end())
-    {
-        article.first_file = j["first_file"].get<std::string>();
-    }
-    if(j.find("second_file") != j.end())
-    {
-        article.second_file = j["second_file"].get<std::string>();
-    }
-    if(j.find("third_file") != j.end())
-    {
-        article.third_file = j["third_file"].get<std::string>();
-    }
+//    if(j.find("first_file") != j.end())
+//    {
+//        article.first_file = j["first_file"].get<std::string>();
+//    }
+//    if(j.find("second_file") != j.end())
+//    {
+//        article.second_file = j["second_file"].get<std::string>();
+//    }
+//    if(j.find("third_file") != j.end())
+//    {
+//        article.third_file = j["third_file"].get<std::string>();
+//    }
 }
 
 void to_json(nlohmann::json &j,const action_info & action)

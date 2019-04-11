@@ -78,12 +78,102 @@ bool DatabaseManager::init_database(std::string db_ip,std::string db_name,std::s
         std::cout << "database_create_file_base_info_error" << std::endl;
         return false;
     }
+//    struct message_info
+//    {
+//        int id;
+//        std::string message_id;
+//        std::string messgae_body;
+//        std::string sender_id;
+//        std::string accepter_id;
+//        std::string session_id;
+//        std::string send_time;
+//        int message_state;
+//
+//        friend void to_json(nlohmann::json &j,const message_info & message);
+//        friend void from_json(const nlohmann::json &j,message_info & message);
+//    };
+    ormpp_auto_key message_info_key{"id"};
+    ormpp_not_null message_info_not_null{{"message_id","messgae_body","sender_id","accepter_id","session_id","send_time","message_state"}};
+
+    if (!m_db.create_datatable<message_info>(message_info_key,message_info_not_null))
+    {
+        std::cout << "database_create_message_info_error" << std::endl;
+        return false;
+    }
+//    struct article_info
+//    {
+//        int id;
+//        std::string article_id;
+//        std::string article_title;
+//        std::string article_content;
+//        std::string author_id;
+//        int article_type;
+//        std::string release_time;
+//        int supporting_number;
+//        int page_view;
+//        int comment_number;
+//        std::string first_file;
+//        std::string second_file;
+//        std::string third_file;
+//
+//        friend void to_json(nlohmann::json &j,const article_info & article);
+//        friend void from_json(const nlohmann::json &j,article_info & article);
+//    };
+    ormpp_auto_key article_info_key{"id"};
+    ormpp_not_null article_info_not_null{{"article_id","article_title","article_content","author_id","article_type","release_time","supporting_number","page_view","comment_number","supporting_number"}};
+
+    if (!m_db.create_datatable<article_info>(message_info_key,message_info_not_null))
+    {
+        std::cout << "database_create_message_info_error" << std::endl;
+        return false;
+    }
+//    struct action_info
+//    {
+//        int id;
+//        std::string action_id;
+//        std::string action_title;
+//        std::string action_content;
+//        std::string action_city;
+//        std::string begin_time;
+//        std::string end_time;
+//        std::string author_id;
+//        std::string first_file;
+//        std::string second_file;
+//        std::string third_file;
+//        std::string release_time;
+//        int page_view;
+//
+//        friend void to_json(nlohmann::json &j,const action_info & action);
+//        friend void from_json(const nlohmann::json &j,action_info & action);
+//    };
+    ormpp_auto_key action_info_key{"id"};
+    ormpp_not_null action_info_not_null{{"action_id","action_title","action_content","action_city","begin_time","end_time","author_id","release_time","page_view"}};
+
+    if (!m_db.create_datatable<action_info>(message_info_key,message_info_not_null))
+    {
+        std::cout << "database_create_action_info_error" << std::endl;
+        return false;
+    }
 }
 
 user_info DatabaseManager::get_userinfo(std::string phone_number,std::string pass_word)
 {
     auto result = m_db.query<user_info>(
             "select * from user_info where phone_number = '" + phone_number + "' and pass_word = '" + pass_word + "'");
+
+    if(!result.empty())
+    {
+        for (auto &user:result)
+        {
+            return user;
+        }
+    }
+}
+
+user_info DatabaseManager::get_userinfo_with_userid(std::string user_id)
+{
+    auto result = m_db.query<user_info>(
+            "select * from user_info where user_id = '" + user_id + "'");
 
     if(!result.empty())
     {
