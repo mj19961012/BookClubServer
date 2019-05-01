@@ -28,7 +28,8 @@ public:
     bool check_file_is_exist(std::string filemd5);
     file_base_info get_file_info_with_md5(std::string filemd5);
     bool insert_file_base_info(file_base_info fileinfo);
-
+    std::vector<message_info> get_message_list(std::string user_id);
+    bool insert_message(message_info msg_info);
 private:
     bool m_is_db_inited;
     ormpp::dbng<ormpp::mysql> m_db;

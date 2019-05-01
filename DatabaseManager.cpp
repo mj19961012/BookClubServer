@@ -80,20 +80,21 @@ bool DatabaseManager::init_database(std::string db_ip,std::string db_name,std::s
     }
 //    struct message_info
 //    {
-//        int id;
-//        std::string message_id;
-//        std::string messgae_body;
-//        std::string sender_id;
-//        std::string accepter_id;
-//        std::string session_id;
-//        std::string send_time;
-//        int message_state;
+//    int id;
+//    std::string message_id;
+//    std::string messgae_body;
+//    std::string sender_id;
+//    std::string accepter_id;
+//    std::string session_id;
+//    std::string send_time;
+//    int message_state;
+//    int message_type;
 //
 //        friend void to_json(nlohmann::json &j,const message_info & message);
 //        friend void from_json(const nlohmann::json &j,message_info & message);
 //    };
     ormpp_auto_key message_info_key{"id"};
-    ormpp_not_null message_info_not_null{{"message_id","messgae_body","sender_id","accepter_id","session_id","send_time","message_state"}};
+    ormpp_not_null message_info_not_null{{"message_id","messgae_body","sender_id","accepter_id","session_id","send_time","message_state","message_type"}};
 
     if (!m_db.create_datatable<message_info>(message_info_key,message_info_not_null))
     {
@@ -248,6 +249,38 @@ bool DatabaseManager::insert_file_base_info(file_base_info fileinfo)
     if (result.empty())
     {
         res = m_db.insert<file_base_info>(fileinfo);
+    }
+    return res != INT_MIN;
+}
+
+std::vector<message_info> DatabaseManager::get_message_list (std::string user_id)
+{
+//    auto result = m_db.query<message_info>(
+//            "select * from message_info where accepter_id = '" + user_id + "' and message_state = '1';");
+    auto result = m_db.query<message_info>(
+            "select * from message_info where accepter_id = '2c1d394d222493560df2c793d660a134' and message_state = '1';");
+    if(!result.empty())
+    {
+        auto temp_vec = result;
+        for(auto &temp_value:temp_vec)
+        {
+            temp_value.message_state = 0;
+            m_db.update<message_info>(temp_value);
+        }
+        return result;
+    }
+    return std::vector<message_info> ();
+}
+
+bool DatabaseManager::insert_message (message_info msg_info)
+{
+    auto result = m_db.query<message_info>("select * from message_info where message_id = '" + msg_info.message_id + "'");
+
+    int res = INT_MIN;
+
+    if (result.empty())
+    {
+        res = m_db.insert<message_info>(msg_info);
     }
     return res != INT_MIN;
 }

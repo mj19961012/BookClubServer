@@ -221,7 +221,8 @@ void to_json(nlohmann::json &j,const message_info & message)
             {"accepter_id",message.accepter_id},
             {"session_id",message.session_id},
             {"send_time",message.send_time},
-            {"message_state",message.message_state}
+            {"message_state",message.message_state},
+            {"message_type",message.message_type}
     };
 }
 
@@ -258,6 +259,10 @@ void from_json(const nlohmann::json &j,message_info & message)
     if(j.find("message_state") != j.end())
     {
         message.message_state = j["message_state"].get<int>();
+    }
+    if(j.find("message_type") != j.end())
+    {
+        message.message_type = j["message_type"].get<int>();
     }
 }
 

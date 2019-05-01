@@ -81,11 +81,12 @@ struct message_info
     std::string session_id;
     std::string send_time;
     int message_state;
+    int message_type;
 
     friend void to_json(nlohmann::json &j,const message_info & message);
     friend void from_json(const nlohmann::json &j,message_info & message);
 };
-REFLECTION(message_info, id, message_id, messgae_body, sender_id, accepter_id, session_id, send_time, message_state);
+REFLECTION(message_info, id, message_id, messgae_body, sender_id, accepter_id, session_id, send_time, message_state, message_type);
 
 struct interest_list
 {

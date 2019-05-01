@@ -4,7 +4,7 @@
 #include "DatabaseManager.h"
 #include "BookClubMannger.h"
 #include "FileMd5.hpp"
-
+#include <boost/lexical_cast.hpp>
 void BookClubMannger::user_login_handle(const cinatra::request& req, cinatra::response& res)
 {
     std::cout << "user_login_callback" << std::endl;
@@ -215,13 +215,109 @@ void BookClubMannger::get_file_info (const cinatra::request &req, cinatra::respo
     else
     {
         json["code"] = -100;
-        json["msg"] = "file not find";
+        json["msg"] = "The file was not found";
     }
 
     res.set_status_and_content(cinatra::status_type::ok,json.dump());
 }
 
 void BookClubMannger::download_simple_file (const cinatra::request &req, cinatra::response &res)
+{
+
+}
+
+void BookClubMannger::get_messages_list_handle (const cinatra::request &req, cinatra::response &res)
+{
+    auto userid = req.get_query_value("userid");
+    std::string userid_str = std::string(userid.data(),userid.length());
+
+    auto messages = DatabaseManager::getInstance ()->get_message_list(userid_str);
+
+    nlohmann::json json;
+    if(messages.size () > 0)
+    {
+        nlohmann::json messages_json(messages);
+
+        json["code"] = 200;
+        json["list"] = messages_json;
+        json["size"] = messages.size ();
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "No unread messages";
+        json["size"] = 0;
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
+}
+
+void BookClubMannger::send_message_handle (const cinatra::request &req, cinatra::response &res)
+{
+    auto sender_id = req.get_query_value("sender_id");
+    std::string sender_id_str = std::string(sender_id.data(),sender_id.length());
+    auto accepter_id = req.get_query_value("accepter_id");
+    std::string accepter_id_str = std::string(accepter_id.data(),accepter_id.length());
+    auto session_id = req.get_query_value("session_id");
+    std::string session_id_str = std::string(session_id.data(),session_id.length());
+    auto message_id = req.get_query_value("message_id");
+    std::string message_id_str = std::string(message_id.data(),message_id.length());
+    auto message_type = req.get_query_value("message_type");
+    int message_type_int = boost::lexical_cast<int>(message_type);
+    auto messgae_body = req.get_query_value("messgae_body");
+    std::string messgae_body_str = std::string(messgae_body.data(),messgae_body.length());
+    auto send_time = req.get_query_value("send_time");
+    std::string send_time_str = std::string(send_time.data(),send_time.length());
+
+    message_info message;
+    message.message_id = message_id_str;
+    message.messgae_body = messgae_body_str;
+    message.sender_id = sender_id_str;
+    message.accepter_id = accepter_id_str;
+    message.session_id = session_id_str;
+    message.message_type = message_type_int;
+    message.send_time = send_time_str;
+    message.message_state = 1;
+
+    nlohmann::json json;
+    if(DatabaseManager::getInstance ()->insert_message (message))
+    {
+        json["code"] = 200;
+        json["msg"] = "Send a success";
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "Send failure";
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
+}
+
+void BookClubMannger::get_activice_list_handle (const cinatra::request &req, cinatra::response &res)
+{
+
+}
+
+void BookClubMannger::create_new_active_handle (const cinatra::request &req, cinatra::response &res)
+{
+
+}
+
+void BookClubMannger::remove_an_active_handle (const cinatra::request &req, cinatra::response &res)
+{
+
+}
+
+void BookClubMannger::get_articles_list_handle (const cinatra::request &req, cinatra::response &res)
+{
+
+}
+
+void BookClubMannger::create_new_article_handle (const cinatra::request &req, cinatra::response &res)
+{
+
+}
+
+void BookClubMannger::remove_an_article_handle (const cinatra::request &req, cinatra::response &res)
 {
 
 }
