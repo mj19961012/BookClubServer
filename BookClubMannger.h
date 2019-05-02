@@ -20,9 +20,9 @@ public:
     void get_file_info(const cinatra::request& req, cinatra::response& res);
     void get_messages_list_handle(const cinatra::request& req, cinatra::response& res);
     void send_message_handle(const cinatra::request& req, cinatra::response& res);
-    void get_activice_list_handle(const cinatra::request& req, cinatra::response& res);
-    void create_new_active_handle(const cinatra::request& req, cinatra::response& res);
-    void remove_an_active_handle(const cinatra::request& req, cinatra::response& res);
+    void get_activities_list_handle (const cinatra::request &req, cinatra::response &res);
+    void create_new_action_handle (const cinatra::request &req, cinatra::response &res);
+    void remove_an_action_handle (const cinatra::request &req, cinatra::response &res);
     void get_articles_list_handle(const cinatra::request& req, cinatra::response& res);
     void create_new_article_handle(const cinatra::request& req, cinatra::response& res);
     void remove_an_article_handle(const cinatra::request& req, cinatra::response& res);

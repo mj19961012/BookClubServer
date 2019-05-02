@@ -292,29 +292,169 @@ void BookClubMannger::send_message_handle (const cinatra::request &req, cinatra:
     res.set_status_and_content(cinatra::status_type::ok,json.dump());
 }
 
-void BookClubMannger::get_activice_list_handle (const cinatra::request &req, cinatra::response &res)
+void BookClubMannger::get_activities_list_handle (const cinatra::request &req, cinatra::response &res)
 {
+    auto page_num = req.get_query_value("page_num");
+    std::string page_num_str = std::string(page_num.data(),page_num.length());
+    int page_num_int = boost::lexical_cast<int>(page_num_str);
+    auto page_size = req.get_query_value("page_size");
+    std::string page_size_str = std::string(page_size.data(),page_size.length());
+    int page_size_int = boost::lexical_cast<int>(page_size_str);
+    auto action_city = req.get_query_value("action_city");
+    std::string action_city_str = std::string(action_city.data(),action_city.length());
+    auto begin_time = req.get_query_value("begin_time");
+    std::string begin_time_str = std::string(begin_time.data(),begin_time.length());
+    auto end_time = req.get_query_value("end_time");
+    std::string end_time_str = std::string(end_time.data(),end_time.length());
 
+    auto activities = DatabaseManager::getInstance ()->get_action_list (page_num_int,page_size_int,action_city_str,begin_time_str,end_time_str);
+
+    nlohmann::json json;
+    if(activities.size () > 0)
+    {
+        nlohmann::json activities_json(activities);
+
+        json["code"] = 200;
+        json["list"] = activities_json;
+        json["size"] = activities.size ();
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "No eligible activities";
+        json["size"] = 0;
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
 }
 
-void BookClubMannger::create_new_active_handle (const cinatra::request &req, cinatra::response &res)
+void BookClubMannger::create_new_action_handle (const cinatra::request &req, cinatra::response &res)
 {
+    auto action_id = req.get_query_value("action_id");
+    std::string action_id_str = std::string(action_id.data(),action_id.length());
+    auto action_title = req.get_query_value("action_title");
+    std::string action_title_str = std::string(action_title.data(),action_title.length());
+    auto action_content = req.get_query_value("action_content");
+    std::string action_content_str = std::string(action_content.data(),action_content.length());
+    auto action_city = req.get_query_value("action_city");
+    std::string action_city_str = std::string(action_city.data(),action_city.length());
+    auto begin_time = req.get_query_value("begin_time");
+    std::string begin_time_str = std::string(begin_time.data(),begin_time.length());
+    auto end_time = req.get_query_value("end_time");
+    std::string end_time_str = std::string(end_time.data(),end_time.length());
+    auto author_id = req.get_query_value("author_id");
+    std::string author_id_str = std::string(author_id.data(),author_id.length());
+    auto first_file = req.get_query_value("first_file");
+    std::string first_file_str = std::string(first_file.data(),first_file.length());
+    auto second_file = req.get_query_value("second_file");
+    std::string second_file_str = std::string(second_file.data(),second_file.length());
+    auto third_file = req.get_query_value("third_file");
+    std::string third_file_str = std::string(third_file.data(),third_file.length());
+    auto release_time = req.get_query_value("release_time");
+    std::string release_time_str = std::string(release_time.data(),release_time.length());
 
+    action_info action;
+    action.action_id = action_id_str;
+    action.action_title = action_title_str;
+    action.action_content = action_content_str;
+    action.action_city = action_city_str;
+    action.begin_time = begin_time_str;
+    action.end_time = end_time_str;
+    action.author_id = author_id_str;
+    action.first_file = first_file_str;
+    action.second_file = second_file_str;
+    action.third_file = third_file_str;
+    action.release_time = release_time_str;
+    action.page_view = 0;
+
+    nlohmann::json json;
+
+    if (DatabaseManager::getInstance ()->insert_action (action))
+    {
+        json["code"] = 200;
+        json["msg"] = "Release success";
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "Post failure";
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
 }
 
-void BookClubMannger::remove_an_active_handle (const cinatra::request &req, cinatra::response &res)
+void BookClubMannger::remove_an_action_handle (const cinatra::request &req, cinatra::response &res)
 {
 
 }
 
 void BookClubMannger::get_articles_list_handle (const cinatra::request &req, cinatra::response &res)
 {
+    auto page_num = req.get_query_value("page_num");
+    std::string page_num_str = std::string(page_num.data(),page_num.length());
+    int page_num_int = boost::lexical_cast<int>(page_num_str);
+    auto page_size = req.get_query_value("page_size");
+    std::string page_size_str = std::string(page_size.data(),page_size.length());
+    int page_size_int = boost::lexical_cast<int>(page_size_str);
 
+    auto articles = DatabaseManager::getInstance ()->get_article_list (page_num_int,page_size_int);
+
+    nlohmann::json json;
+    if(articles.size () > 0)
+    {
+        nlohmann::json articles_json(articles);
+
+        json["code"] = 200;
+        json["list"] = articles_json;
+        json["size"] = articles.size ();
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "There are no eligible posts";
+        json["size"] = 0;
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
 }
 
 void BookClubMannger::create_new_article_handle (const cinatra::request &req, cinatra::response &res)
 {
+    auto article_id = req.get_query_value("article_id");
+    std::string article_id_str = std::string(article_id.data(),article_id.length());
+    auto article_title = req.get_query_value("article_title");
+    std::string article_title_str = std::string(article_title.data(),article_title.length());
+    auto article_content = req.get_query_value("article_content");
+    std::string article_content_str = std::string(article_content.data(),article_content.length());
+    auto article_type = req.get_query_value("article_type");
+    std::string article_type_str = std::string(article_type.data(),article_type.length());
+    int article_type_int = boost::lexical_cast<int>(article_type_str);
+    auto release_time = req.get_query_value("release_time");
+    std::string release_time_str = std::string(release_time.data(),release_time.length());
+    auto author_id = req.get_query_value("author_id");
+    std::string author_id_str = std::string(author_id.data(),author_id.length());
 
+    article_info article;
+    article.article_id = article_id_str;
+    article.article_title = article_title_str;
+    article.article_content = article_content_str;
+    article.author_id = author_id_str;
+    article.article_type = article_type_int;
+    article.release_time = release_time_str;
+    article.author_id = author_id_str;
+    article.supporting_number = 0;
+    article.page_view = 0;
+    article.comment_number = 0;
+    nlohmann::json json;
+
+    if (DatabaseManager::getInstance ()->insert_article (article))
+    {
+        json["code"] = 200;
+        json["msg"] = "Release success";
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "Post failure";
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
 }
 
 void BookClubMannger::remove_an_article_handle (const cinatra::request &req, cinatra::response &res)

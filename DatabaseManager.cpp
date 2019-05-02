@@ -3,6 +3,7 @@
 //
 
 #include "DatabaseManager.h"
+#include <boost/lexical_cast.hpp>
 
 DatabaseManager::DatabaseManager()
     :m_is_db_inited(false)
@@ -155,6 +156,7 @@ bool DatabaseManager::init_database(std::string db_ip,std::string db_name,std::s
         std::cout << "database_create_action_info_error" << std::endl;
         return false;
     }
+    return true;
 }
 
 user_info DatabaseManager::get_userinfo(std::string phone_number,std::string pass_word)
@@ -272,15 +274,72 @@ std::vector<message_info> DatabaseManager::get_message_list (std::string user_id
     return std::vector<message_info> ();
 }
 
-bool DatabaseManager::insert_message (message_info msg_info)
+bool DatabaseManager::insert_message (message_info message)
 {
-    auto result = m_db.query<message_info>("select * from message_info where message_id = '" + msg_info.message_id + "'");
+    auto result = m_db.query<message_info>("select * from message_info where message_id = '" + message.message_id + "'");
 
     int res = INT_MIN;
 
     if (result.empty())
     {
-        res = m_db.insert<message_info>(msg_info);
+        res = m_db.insert<message_info>(message);
+    }
+    return res != INT_MIN;
+}
+
+std::vector<action_info> DatabaseManager::get_action_list (int pagesize, int pagenum, std::string city, std::string begintime, std::string endtime)
+{
+    //"select * from orders_history where type=8 and \n"
+    //"id>=(select id from orders_history where type=8 limit 100000,1) \n"
+    //"limit 100;"  分页查询数据库
+    std::string sql_str_chile = "(select id from action_info where begin_time + 0 < " + begintime + " and end_time + 0 > " + endtime + " and action_city = '" + city + "' limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
+    std::string sql_str_main = "select * from action_info where id >= "+ sql_str_chile + "limit " + boost::lexical_cast<std::string> (pagesize) + ";";
+
+    auto result = m_db.query<action_info>(sql_str_main);
+
+    if(!result.empty())
+    {
+        return result;
+    }
+    return std::vector<action_info> ();
+}
+
+bool DatabaseManager::insert_action (action_info action)
+{
+    auto result = m_db.query<action_info>("select * from action_info where action_id = '" + action.action_id + "'");
+
+    int res = INT_MIN;
+
+    if (result.empty())
+    {
+        res = m_db.insert<action_info>(action);
+    }
+    return res != INT_MIN;
+}
+
+std::vector<article_info> DatabaseManager::get_article_list (int pagesize, int pagenum)
+{
+    std::string sql_str_chile = "(select id from article_info where limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
+    std::string sql_str_main = "select * from article_info where id >= "+ sql_str_chile + "limit " + boost::lexical_cast<std::string> (pagesize) + ";";
+
+    auto result = m_db.query<article_info>(sql_str_main);
+
+    if(!result.empty())
+    {
+        return result;
+    }
+    return std::vector<article_info> ();
+}
+
+bool DatabaseManager::insert_article (article_info article)
+{
+    auto result = m_db.query<action_info>("select * from article_info where article_id = '" + article.article_id + "'");
+
+    int res = INT_MIN;
+
+    if (result.empty())
+    {
+        res = m_db.insert<article_info>(article);
     }
     return res != INT_MIN;
 }

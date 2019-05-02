@@ -29,7 +29,11 @@ public:
     file_base_info get_file_info_with_md5(std::string filemd5);
     bool insert_file_base_info(file_base_info fileinfo);
     std::vector<message_info> get_message_list(std::string user_id);
-    bool insert_message(message_info msg_info);
+    bool insert_message(message_info message);
+    std::vector<action_info> get_action_list (int pagesize, int pagenum, std::string city, std::string begintime = "-1", std::string endtime = "-1");
+    bool insert_action(action_info action);
+    std::vector<article_info>get_article_list(int pagesize, int pagenum);
+    bool insert_article(article_info article);
 private:
     bool m_is_db_inited;
     ormpp::dbng<ormpp::mysql> m_db;

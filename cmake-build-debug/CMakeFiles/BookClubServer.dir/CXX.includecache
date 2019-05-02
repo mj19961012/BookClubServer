@@ -21,6 +21,8 @@ string
 D:/CodeProjects/C_Projects/BookClubServer/DatabaseManager.cpp
 DatabaseManager.h
 D:/CodeProjects/C_Projects/BookClubServer/DatabaseManager.h
+boost/lexical_cast.hpp
+-
 
 D:/CodeProjects/C_Projects/BookClubServer/DatabaseManager.h
 BookClubEntity.hpp
