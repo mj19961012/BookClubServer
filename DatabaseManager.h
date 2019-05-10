@@ -28,11 +28,15 @@ public:
     bool check_file_is_exist(std::string filemd5);
     file_base_info get_file_info_with_md5(std::string filemd5);
     bool insert_file_base_info(file_base_info fileinfo);
-    std::vector<message_info> get_message_list(std::string user_id);
+    std::vector<message_info> get_message_list (std::string session_id, int message_type = 3);
     bool insert_message(message_info message);
     std::vector<action_info> get_action_list (int pagesize, int pagenum, std::string city, std::string begintime = "-1", std::string endtime = "-1");
+    action_info get_action_info(std::string action_id);
+    void update_action(action_info action);
     bool insert_action(action_info action);
     std::vector<article_info>get_article_list(int pagesize, int pagenum);
+    article_info get_article_info(std::string article_id);
+    void update_article(article_info article);
     bool insert_article(article_info article);
 private:
     bool m_is_db_inited;

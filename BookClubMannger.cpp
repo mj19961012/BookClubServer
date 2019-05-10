@@ -231,7 +231,7 @@ void BookClubMannger::get_messages_list_handle (const cinatra::request &req, cin
     auto userid = req.get_query_value("userid");
     std::string userid_str = std::string(userid.data(),userid.length());
 
-    auto messages = DatabaseManager::getInstance ()->get_message_list(userid_str);
+    auto messages = DatabaseManager::getInstance ()->get_message_list (userid_str, 0);
 
     nlohmann::json json;
     if(messages.size () > 0)
@@ -460,4 +460,54 @@ void BookClubMannger::create_new_article_handle (const cinatra::request &req, ci
 void BookClubMannger::remove_an_article_handle (const cinatra::request &req, cinatra::response &res)
 {
 
+}
+
+void BookClubMannger::get_detail_of_the_action_handle (const cinatra::request &req, cinatra::response &res)
+{
+    auto action_id = req.get_query_value("action_id");
+    std::string action_id_str = std::string(action_id.data(),action_id.length());
+
+    nlohmann::json json;
+
+    auto action = DatabaseManager::getInstance ()->get_action_info (action_id_str);
+    auto commit_list = DatabaseManager::getInstance ()->get_message_list (action_id_str,1);
+    if(action.action_id != "")
+    {
+        json["code"] = 200;
+        json["action"] = action;
+        json["list"] = commit_list;
+        ++action.page_view;
+        DatabaseManager::getInstance ()->update_action (action);
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "Activities do not exist";
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
+}
+
+void BookClubMannger::get_detail_of_the_article_handle (const cinatra::request &req, cinatra::response &res)
+{
+    auto article_id = req.get_query_value("article_id");
+    std::string article_id_str = std::string(article_id.data(),article_id.length());
+
+    nlohmann::json json;
+
+    auto article = DatabaseManager::getInstance ()->get_article_info (article_id_str);
+    auto commit_list = DatabaseManager::getInstance ()->get_message_list (article_id_str,1);
+    if(article.article_id != "")
+    {
+        json["code"] = 200;
+        json["article"] = article;
+        json["list"] = commit_list;
+        ++article.page_view;
+        DatabaseManager::getInstance ()->update_article (article);
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "Articles do not exist";
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
 }

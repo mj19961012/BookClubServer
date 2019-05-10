@@ -255,12 +255,24 @@ bool DatabaseManager::insert_file_base_info(file_base_info fileinfo)
     return res != INT_MIN;
 }
 
-std::vector<message_info> DatabaseManager::get_message_list (std::string user_id)
+std::vector<message_info> DatabaseManager::get_message_list (std::string session_id, int message_type)
 {
 //    auto result = m_db.query<message_info>(
-//            "select * from message_info where accepter_id = '" + user_id + "' and message_state = '1';");
-    auto result = m_db.query<message_info>(
-            "select * from message_info where accepter_id = '2c1d394d222493560df2c793d660a134' and message_state = '1';");
+//            "select * from message_info where accepter_id = '" + session_id + "' and message_state = '1';");
+    std::string str_sql;
+    if(0 == message_type)
+    {
+        str_sql =  "select * from message_info where accepter_id = '" + session_id + "' and message_state = '1';";
+    }
+    else if(1 == message_type)
+    {
+        str_sql =  "select * from message_info where session_id = '" + session_id + "' and message_type = '1';";
+    }
+    else
+    {
+        str_sql =  "select * from message_info where accepter_id = '2c1d394d222493560df2c793d660a134' and message_state = '1';";
+    }
+    auto result = m_db.query<message_info>(str_sql);
     if(!result.empty())
     {
         auto temp_vec = result;
@@ -333,7 +345,7 @@ std::vector<article_info> DatabaseManager::get_article_list (int pagesize, int p
 
 bool DatabaseManager::insert_article (article_info article)
 {
-    auto result = m_db.query<action_info>("select * from article_info where article_id = '" + article.article_id + "'");
+    auto result = m_db.query<article_info>("select * from article_info where article_id = '" + article.article_id + "'");
 
     int res = INT_MIN;
 
@@ -343,3 +355,42 @@ bool DatabaseManager::insert_article (article_info article)
     }
     return res != INT_MIN;
 }
+
+action_info DatabaseManager::get_action_info (std::string action_id)
+{
+    auto result = m_db.query<action_info>("select * from action_info where action_id = '" + action_id + "'");
+
+    if(!result.empty ())
+    {
+        for(auto & action : result)
+        {
+            return  action;
+        }
+    }
+    return action_info ();
+}
+
+article_info DatabaseManager::get_article_info (std::string article_id)
+{
+    auto result = m_db.query<article_info>("select * from article_info where article_id = '" + article_id + "'");
+
+    if(!result.empty ())
+    {
+        for(auto & article : result)
+        {
+            return  article;
+        }
+    }
+    return article_info ();
+}
+
+void DatabaseManager::update_article (article_info article)
+{
+    m_db.update<article_info>(article);
+}
+
+void DatabaseManager::update_action (action_info action)
+{
+    m_db.update<action_info>(action);
+}
+

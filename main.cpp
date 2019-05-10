@@ -46,8 +46,10 @@ int main (int argc,char ** argv)
         server.set_http_handler<GET, POST>("/clint/message/send_msg", &BookClubMannger::send_message_handle, &BC_Manager);
         server.set_http_handler<GET, POST>("/clint/article/get_list", &BookClubMannger::get_articles_list_handle, &BC_Manager);
         server.set_http_handler<GET, POST>("/clint/article/release", &BookClubMannger::create_new_article_handle, &BC_Manager);
+        server.set_http_handler<GET, POST>("/clint/article/get_detail", &BookClubMannger::get_detail_of_the_article_handle, &BC_Manager);
         server.set_http_handler<GET, POST>("/clint/action/get_list", &BookClubMannger::get_activities_list_handle, &BC_Manager);
         server.set_http_handler<GET, POST>("/clint/action/release", &BookClubMannger::create_new_action_handle, &BC_Manager);
+        server.set_http_handler<GET, POST>("/clint/action/get_detail", &BookClubMannger::get_detail_of_the_action_handle, &BC_Manager);
 //        server.set_http_handler<GET, POST>("/clint/file/download", &BookClubMannger::download_simple_file, &BC_Manager);
     }
     catch (...)
