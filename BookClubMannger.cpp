@@ -19,6 +19,7 @@ void BookClubMannger::user_login_handle(const cinatra::request& req, cinatra::re
     if(DatabaseManager::getInstance ()->check_username_password (username_str,password_str))
     {
         json_res["code"] = -100;
+        json_res["msg"] = "Error entering username or password";
     }
     else
     {
@@ -32,6 +33,7 @@ void BookClubMannger::user_login_handle(const cinatra::request& req, cinatra::re
         else
         {
             json_res["code"] = -100;
+            json_res["msg"] = "user does not exist";
         }
     }
 
@@ -394,8 +396,10 @@ void BookClubMannger::get_articles_list_handle (const cinatra::request &req, cin
     auto page_size = req.get_query_value("page_size");
     std::string page_size_str = std::string(page_size.data(),page_size.length());
     int page_size_int = boost::lexical_cast<int>(page_size_str);
+    auto article_type = req.get_query_value("type");
+    std::string article_type_str = std::string(article_type.data(),article_type.length());
 
-    auto articles = DatabaseManager::getInstance ()->get_article_list (page_num_int,page_size_int);
+    auto articles = DatabaseManager::getInstance ()->get_article_list (page_num_int, page_size_int,article_type_str);
 
     nlohmann::json json;
     if(articles.size () > 0)
@@ -471,11 +475,26 @@ void BookClubMannger::get_detail_of_the_action_handle (const cinatra::request &r
 
     auto action = DatabaseManager::getInstance ()->get_action_info (action_id_str);
     auto commit_list = DatabaseManager::getInstance ()->get_message_list (action_id_str,1);
+    nlohmann::json files;
+    if (action.first_file != "")
+    {
+        files["first_file"] = DatabaseManager::getInstance ()->get_file_info_with_md5 (action.first_file);
+    }
+    if (action.second_file != "")
+    {
+        files["second_file"] = DatabaseManager::getInstance ()->get_file_info_with_md5 (action.second_file);
+    }
+    if (action.third_file != "")
+    {
+        files["third_file"] = DatabaseManager::getInstance ()->get_file_info_with_md5 (action.third_file);
+    }
+
     if(action.action_id != "")
     {
         json["code"] = 200;
         json["action"] = action;
         json["list"] = commit_list;
+        json["files"] = files;
         ++action.page_view;
         DatabaseManager::getInstance ()->update_action (action);
     }
@@ -508,6 +527,68 @@ void BookClubMannger::get_detail_of_the_article_handle (const cinatra::request &
     {
         json["code"] = -100;
         json["msg"] = "Articles do not exist";
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
+}
+
+void BookClubMannger::get_activities_list_with_someone_handle (const cinatra::request &req, cinatra::response &res)
+{
+    auto userid = req.get_query_value("userid");
+    std::string userid_str = std::string(userid.data(),userid.length());
+    auto page_num = req.get_query_value("page_num");
+    std::string page_num_str = std::string(page_num.data(),page_num.length());
+    int page_num_int = boost::lexical_cast<int>(page_num_str);
+    auto page_size = req.get_query_value("page_size");
+    std::string page_size_str = std::string(page_size.data(),page_size.length());
+    int page_size_int = boost::lexical_cast<int>(page_size_str);
+
+    auto activities = DatabaseManager::getInstance ()->get_action_list_with_someone (userid_str, page_num_int, page_size_int);
+
+    nlohmann::json json;
+    if(activities.size () > 0)
+    {
+        nlohmann::json activities_json(activities);
+
+        json["code"] = 200;
+        json["list"] = activities_json;
+        json["size"] = activities.size ();
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "No eligible activities";
+        json["size"] = 0;
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
+}
+
+void BookClubMannger::get_articles_list_with_someone_handle (const cinatra::request &req, cinatra::response &res)
+{
+    auto userid = req.get_query_value("userid");
+    std::string userid_str = std::string(userid.data(),userid.length());
+    auto page_num = req.get_query_value("page_num");
+    std::string page_num_str = std::string(page_num.data(),page_num.length());
+    int page_num_int = boost::lexical_cast<int>(page_num_str);
+    auto page_size = req.get_query_value("page_size");
+    std::string page_size_str = std::string(page_size.data(),page_size.length());
+    int page_size_int = boost::lexical_cast<int>(page_size_str);
+
+    auto articles = DatabaseManager::getInstance ()->get_article_list_with_someone (userid_str, page_num_int, page_size_int);
+
+    nlohmann::json json;
+    if(articles.size () > 0)
+    {
+        nlohmann::json articles_json(articles);
+
+        json["code"] = 200;
+        json["list"] = articles_json;
+        json["size"] = articles.size ();
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "There are no eligible posts";
+        json["size"] = 0;
     }
     res.set_status_and_content(cinatra::status_type::ok,json.dump());
 }

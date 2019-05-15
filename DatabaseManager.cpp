@@ -171,6 +171,7 @@ user_info DatabaseManager::get_userinfo(std::string phone_number,std::string pas
             return user;
         }
     }
+    return user_info ();
 }
 
 user_info DatabaseManager::get_userinfo_with_userid(std::string user_id)
@@ -185,6 +186,7 @@ user_info DatabaseManager::get_userinfo_with_userid(std::string user_id)
             return user;
         }
     }
+    return user_info ();
 }
 
 bool DatabaseManager::check_username_password(std::string phone_number,std::string pass_word)
@@ -329,10 +331,10 @@ bool DatabaseManager::insert_action (action_info action)
     return res != INT_MIN;
 }
 
-std::vector<article_info> DatabaseManager::get_article_list (int pagesize, int pagenum)
+std::vector<article_info> DatabaseManager::get_article_list (int pagesize, int pagenum, std::string article_type)
 {
-    std::string sql_str_chile = "(select id from article_info where limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
-    std::string sql_str_main = "select * from article_info where id >= "+ sql_str_chile + "limit " + boost::lexical_cast<std::string> (pagesize) + ";";
+    std::string sql_str_chile = "(select id from article_info where article_type = " + article_type +" limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
+    std::string sql_str_main = "select * from article_info where id >= "+ sql_str_chile + " and article_type = " + article_type + "limit " + boost::lexical_cast<std::string> (pagesize) + ";";
 
     auto result = m_db.query<article_info>(sql_str_main);
 
@@ -392,5 +394,33 @@ void DatabaseManager::update_article (article_info article)
 void DatabaseManager::update_action (action_info action)
 {
     m_db.update<action_info>(action);
+}
+
+std::vector<article_info> DatabaseManager::get_article_list_with_someone (std::string userid, int pagenum, int pagesize)
+{
+    std::string sql_str_chile = "(select id from article_info where author_id = " + userid +" limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
+    std::string sql_str_main = "select * from article_info where id >= "+ sql_str_chile + " and author_id = " + userid + "limit " + boost::lexical_cast<std::string> (pagesize) + ";";
+
+    auto result = m_db.query<article_info>(sql_str_main);
+
+    if(!result.empty())
+    {
+        return result;
+    }
+    return std::vector<article_info> ();
+}
+
+std::vector<action_info> DatabaseManager::get_action_list_with_someone (std::string userid, int pagenum, int pagesize)
+{
+    std::string sql_str_chile = "(select id from action_info where author_id = " + userid +" limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
+    std::string sql_str_main = "select * from action_info where id >= "+ sql_str_chile + " and author_id = " + userid + "limit " + boost::lexical_cast<std::string> (pagesize) + ";";
+
+    auto result = m_db.query<action_info>(sql_str_main);
+
+    if(!result.empty())
+    {
+        return result;
+    }
+    return std::vector<action_info> ();
 }
 

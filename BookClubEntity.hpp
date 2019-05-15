@@ -107,6 +107,9 @@ struct file_base_info
     int file_size;
     int file_type;
     std::string local_path;
+
+    friend void to_json(nlohmann::json &j,const file_base_info & file);
+    friend void from_json(const nlohmann::json &j,file_base_info & file);
 };
 REFLECTION(file_base_info,id,file_md5,file_size,file_type,local_path);
 
