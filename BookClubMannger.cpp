@@ -592,3 +592,78 @@ void BookClubMannger::get_articles_list_with_someone_handle (const cinatra::requ
     }
     res.set_status_and_content(cinatra::status_type::ok,json.dump());
 }
+
+void BookClubMannger::follow_somebody_handle (const cinatra::request &req, cinatra::response &res)
+{
+    auto interest_id = req.get_query_value("interest_id");
+    std::string interest_id_str = std::string(interest_id.data(),interest_id.length());
+    auto user_id = req.get_query_value("user_id");
+    std::string user_id_str = std::string(user_id.data(),user_id.length());
+    auto follow_id = req.get_query_value("follow_id");
+    std::string follow_id_str = std::string(follow_id.data(),follow_id.length());
+    auto date = req.get_query_value("date");
+    std::string date_str = std::string(date.data(),date.length());
+
+    interest_list interest;
+    interest.interest_id = interest_id_str;
+    interest.user_id = user_id_str;
+    interest.follower_id = follow_id_str;
+    interest.date_subscribed = date_str;
+
+    nlohmann::json json;
+    if(DatabaseManager::getInstance ()->insert_interest (interest))
+    {
+        json["code"] = 200;
+        json["msg"] = "Focus on success";
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "Focus on failure";
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
+}
+
+void BookClubMannger::follow_cancle_somebody_handle (const cinatra::request &req, cinatra::response &res)
+{
+    auto interest_id = req.get_query_value("interest_id");
+    std::string interest_id_str = std::string(interest_id.data(),interest_id.length());
+
+    nlohmann::json json;
+    if(DatabaseManager::getInstance ()->remove_interest (interest_id_str))
+    {
+        json["code"] = 200;
+        json["msg"] = "Cancel Focus on Success";
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "Failure to cancel attention";
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
+}
+
+void BookClubMannger::get_somebody_interest_list_handle (const cinatra::request &req, cinatra::response &res)
+{
+    auto user_id = req.get_query_value("user_id");
+    std::string user_id_str = std::string(user_id.data(),user_id.length());
+
+    auto interest_list = DatabaseManager::getInstance ()->get_someone_interest_list (user_id_str,page_size_int,action_city_str,begin_time_str,end_time_str);
+
+    nlohmann::json json;
+    if(interest_list.size () > 0)
+    {
+        nlohmann::json interest_list_json(interest_list);
+
+        json["code"] = 200;
+        json["list"] = interest_list_json;
+        json["size"] = interest_list.size ();
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "Not paying attention to anybody";
+        json["size"] = 0;
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
+}

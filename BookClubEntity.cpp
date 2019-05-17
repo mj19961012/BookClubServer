@@ -270,6 +270,7 @@ void to_json(nlohmann::json &j,const interest_list & interest)
 {
     j = nlohmann::json{
             {"id",interest.id},
+            {"interest_id",interest.interest_id},
             {"user_id",interest.user_id},
             {"follower_id",interest.follower_id},
             {"date_subscribed",interest.date_subscribed}
@@ -281,6 +282,10 @@ void from_json(const nlohmann::json &j,interest_list & interest)
     if(j.find("id") != j.end())
     {
         interest.id = j["id"].get<int>();
+    }
+    if(j.find("interest_id") != j.end())
+    {
+        interest.interest_id = j["interest_id"].get<std::string>();
     }
     if(j.find("user_id") != j.end())
     {

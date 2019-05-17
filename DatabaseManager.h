@@ -40,6 +40,9 @@ public:
     article_info get_article_info(std::string article_id);
     void update_article(article_info article);
     bool insert_article(article_info article);
+    bool insert_interest(interest_list interest);
+    bool remove_interest (std::string interest_id);
+    std::vector<interest_list>get_someone_interest_list(std::string user_id);
 private:
     bool m_is_db_inited;
     ormpp::dbng<ormpp::mysql> m_db;

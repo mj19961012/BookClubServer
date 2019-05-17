@@ -30,6 +30,9 @@ public:
     void create_new_article_handle(const cinatra::request& req, cinatra::response& res);
     void get_detail_of_the_article_handle(const cinatra::request& req, cinatra::response& res);
     void remove_an_article_handle(const cinatra::request& req, cinatra::response& res);
+    void follow_somebody_handle(const cinatra::request& req, cinatra::response& res);
+    void follow_cancle_somebody_handle(const cinatra::request& req, cinatra::response& res);
+    void get_somebody_interest_list_handle(const cinatra::request& req, cinatra::response& res);
 };
 
 

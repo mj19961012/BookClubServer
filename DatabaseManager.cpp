@@ -55,7 +55,7 @@ bool DatabaseManager::init_database(std::string db_ip,std::string db_name,std::s
 //        int action_number;
 //    };
     ormpp_auto_key user_info_key{"id"};
-    ormpp_not_null user_info_not_null{{"user_id","user_name","pass_word"}};
+    ormpp_not_null user_info_not_null{{"user_id","phone_number","pass_word"}};
 
     if (!m_db.create_datatable<user_info>(user_info_key,user_info_not_null))
     {
@@ -122,7 +122,7 @@ bool DatabaseManager::init_database(std::string db_ip,std::string db_name,std::s
 //        friend void from_json(const nlohmann::json &j,article_info & article);
 //    };
     ormpp_auto_key article_info_key{"id"};
-    ormpp_not_null article_info_not_null{{"article_id","article_title","article_content","author_id","article_type","release_time","supporting_number","page_view","comment_number","supporting_number"}};
+    ormpp_not_null article_info_not_null{{"article_id","article_title","article_content","author_id","article_type","release_time","supporting_number","page_view","comment_number"}};
 
     if (!m_db.create_datatable<article_info>(message_info_key,message_info_not_null))
     {
@@ -152,6 +152,22 @@ bool DatabaseManager::init_database(std::string db_ip,std::string db_name,std::s
     ormpp_not_null action_info_not_null{{"action_id","action_title","action_content","action_city","begin_time","end_time","author_id","release_time","page_view"}};
 
     if (!m_db.create_datatable<action_info>(message_info_key,message_info_not_null))
+    {
+        std::cout << "database_create_action_info_error" << std::endl;
+        return false;
+    }
+
+//    struct interest_list
+//    {
+//        int id;
+//        std::string user_id;
+//        std::string follower_id;
+//        std::string date_subscribed;
+//    };
+    ormpp_auto_key interest_list_key{"id"};
+    ormpp_not_null interest_list_not_null{{"user_id","follower_id","date_subscribed"}};
+
+    if (!m_db.create_datatable<interest_list>(interest_list_key,interest_list_not_null))
     {
         std::cout << "database_create_action_info_error" << std::endl;
         return false;
@@ -240,6 +256,7 @@ file_base_info DatabaseManager::get_file_info_with_md5(std::string filemd5)
             return file;
         }
     }
+    return file_base_info ();
 }
 
 bool DatabaseManager::insert_file_base_info(file_base_info fileinfo)
@@ -422,5 +439,34 @@ std::vector<action_info> DatabaseManager::get_action_list_with_someone (std::str
         return result;
     }
     return std::vector<action_info> ();
+}
+
+bool DatabaseManager::insert_interest (interest_list interest)
+{
+    auto result = m_db.query<interest_list>("select * from interest_list where interest_id = '" + interest.interest_id + "'");
+
+    int res = INT_MIN;
+
+    if (result.empty())
+    {
+        res = m_db.insert<interest_list>(interest);
+    }
+    return res != INT_MIN;
+}
+
+bool DatabaseManager::remove_interest (std::string interest_id)
+{
+    return m_db.delete_records<interest_list>("id='" + interest_id + "'");
+}
+
+std::vector<interest_list> DatabaseManager::get_someone_interest_list (std::string user_id)
+{
+    auto result = m_db.query<interest_list>("select * from interest_list where user_id = '" + user_id + "'");
+
+    if(!result.empty ())
+    {
+        return result;
+    }
+    return std::vector<interest_list> ();
 }
 

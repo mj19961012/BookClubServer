@@ -91,6 +91,7 @@ REFLECTION(message_info, id, message_id, messgae_body, sender_id, accepter_id, s
 struct interest_list
 {
     int id;
+    std::string interest_id;
     std::string user_id;
     std::string follower_id;
     std::string date_subscribed;
