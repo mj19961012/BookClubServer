@@ -165,7 +165,7 @@ bool DatabaseManager::init_database(std::string db_ip,std::string db_name,std::s
 //        std::string date_subscribed;
 //    };
     ormpp_auto_key interest_list_key{"id"};
-    ormpp_not_null interest_list_not_null{{"user_id","follower_id","date_subscribed"}};
+    ormpp_not_null interest_list_not_null{{"user_id","interest_id","follower_id","date_subscribed"}};
 
     if (!m_db.create_datatable<interest_list>(interest_list_key,interest_list_not_null))
     {

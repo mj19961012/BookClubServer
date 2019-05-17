@@ -99,7 +99,7 @@ struct interest_list
     friend void to_json(nlohmann::json &j,const interest_list & interest);
     friend void from_json(const nlohmann::json &j,interest_list & interest);
 };
-REFLECTION(interest_list, id, user_id, follower_id, date_subscribed);
+REFLECTION(interest_list, id,interest_id , user_id, follower_id, date_subscribed);
 
 struct file_base_info
 {

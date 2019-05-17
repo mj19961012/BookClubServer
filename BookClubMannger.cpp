@@ -648,7 +648,7 @@ void BookClubMannger::get_somebody_interest_list_handle (const cinatra::request 
     auto user_id = req.get_query_value("user_id");
     std::string user_id_str = std::string(user_id.data(),user_id.length());
 
-    auto interest_list = DatabaseManager::getInstance ()->get_someone_interest_list (user_id_str,page_size_int,action_city_str,begin_time_str,end_time_str);
+    auto interest_list = DatabaseManager::getInstance ()->get_someone_interest_list (user_id_str);
 
     nlohmann::json json;
     if(interest_list.size () > 0)
