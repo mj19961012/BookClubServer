@@ -291,12 +291,14 @@ std::vector<message_info> DatabaseManager::get_message_list (std::string session
     {
         str_sql =  "select * from message_info where accepter_id = '2c1d394d222493560df2c793d660a134' and message_state = '1';";
     }
+
     auto result = m_db.query<message_info>(str_sql);
     if(!result.empty())
     {
         auto temp_vec = result;
         for(auto &temp_value:temp_vec)
         {
+            //返回消息列表之后不要立刻更新数据，点击消息列表时发送标记消息为已读状态的请求，然后更新消息状态。   客户端缓存会话消息列表
             temp_value.message_state = 0;
             m_db.update<message_info>(temp_value);
         }

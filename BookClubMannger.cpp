@@ -667,3 +667,26 @@ void BookClubMannger::get_somebody_interest_list_handle (const cinatra::request 
     }
     res.set_status_and_content(cinatra::status_type::ok,json.dump());
 }
+
+void BookClubMannger::get_somebody_information_handle (const cinatra::request &req, cinatra::response &res)
+{
+    auto user_id = req.get_query_value("user_id");
+    std::string user_id_str = std::string(user_id.data(),user_id.length());
+
+    auto user = DatabaseManager::getInstance ()->get_userinfo_with_userid (user_id_str);
+
+    nlohmann::json json;
+    user.pass_word = "******";
+
+    if(user.user_id.length () > 0)
+    {
+        json["code"] = 200;
+        json["user"] = user;
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "user does not exist";
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
+}

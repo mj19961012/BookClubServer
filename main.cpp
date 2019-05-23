@@ -38,7 +38,8 @@ int main (int argc,char ** argv)
     try
     {
         server.set_http_handler<GET, POST>("/client/user/login", &BookClubMannger::user_login_handle, &BC_Manager);
-        server.set_http_handler<GET, POST>("/client/user/regist", &BookClubMannger::user_regist_handle, &BC_Manager);
+        server.set_http_handler<GET, POST>("/client/user/regiest", &BookClubMannger::user_regist_handle, &BC_Manager);
+        server.set_http_handler<GET, POST>("/client/user/get_info", &BookClubMannger::get_somebody_information_handle, &BC_Manager);
 
         server.set_http_handler<GET, POST>("/init/city_dictionary", &BookClubMannger::init_city_dictionary, &BC_Manager);
 
