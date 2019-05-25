@@ -472,3 +472,19 @@ std::vector<interest_list> DatabaseManager::get_someone_interest_list (std::stri
     return std::vector<interest_list> ();
 }
 
+bool DatabaseManager::change_message_status (std::string message_id)
+{
+    auto result = m_db.query<message_info>("select * from message_info where message_id = '" + message_id + "'");
+
+    int res = INT_MIN;
+
+    if(!result.empty ())
+    {
+        for(auto &message : result)
+        {
+            res = m_db.update<message_info>(message);
+        }
+    }
+    return res == INT_MIN;
+}
+

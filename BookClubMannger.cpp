@@ -15,7 +15,9 @@ void BookClubMannger::user_login_handle(const cinatra::request& req, cinatra::re
     std::string password_str = std::string(password.data(),password.length());
     std::cout << "username : " << username_str << std::endl;
     std::cout << "password : " << password_str << std::endl;
+
     nlohmann::json json_res;
+
     if(DatabaseManager::getInstance ()->check_username_password (username_str,password_str))
     {
         json_res["code"] = -100;
@@ -689,4 +691,15 @@ void BookClubMannger::get_somebody_information_handle (const cinatra::request &r
         json["msg"] = "user does not exist";
     }
     res.set_status_and_content(cinatra::status_type::ok,json.dump());
+}
+
+void BookClubMannger::change_message_status_handle (const cinatra::request &req, cinatra::response &res)
+{
+    auto message_id = req.get_query_value("message_id");
+    std::string message_id_str = std::string(message_id.data(),message_id.length());
+
+    auto message = DatabaseManager::getInstance ()->get_message (message_id_str);
+
+    message.message_state = 0;
+
 }

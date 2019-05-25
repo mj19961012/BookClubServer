@@ -19,7 +19,8 @@ public:
     void download_simple_file(const cinatra::request& req, cinatra::response& res);
     void get_file_info(const cinatra::request& req, cinatra::response& res);
     void get_messages_list_handle(const cinatra::request& req, cinatra::response& res);
-    void send_message_handle(const cinatra::request& req, cinatra::response& res);
+    void send_message_handle(const cinatra::request& req, cinatra::response& res)
+    void change_message_status_handle(const cinatra::request& req, cinatra::response& res)
     void get_activities_list_handle (const cinatra::request &req, cinatra::response &res);
     void get_activities_list_with_someone_handle (const cinatra::request &req, cinatra::response &res);
     void create_new_action_handle (const cinatra::request &req, cinatra::response &res);
