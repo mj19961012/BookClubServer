@@ -27,6 +27,10 @@ void BookClubMannger::user_login_handle(const cinatra::request& req, cinatra::re
     {
         auto tmp_userinfo = DatabaseManager::getInstance ()->get_userinfo (username_str,password_str);
         nlohmann::json json_user(tmp_userinfo);
+
+        std::cout << tmp_userinfo.head_image << std::endl;
+        std::cout << tmp_userinfo.user_id << std::endl;
+
         if (!json_user.empty ())
         {
             json_res["code"] = 200;
@@ -38,7 +42,7 @@ void BookClubMannger::user_login_handle(const cinatra::request& req, cinatra::re
             json_res["msg"] = "user does not exist";
         }
     }
-
+    std::cout << json_res.dump() << std::endl;
     res.set_status_and_content(cinatra::status_type::ok,json_res.dump());
 }
 
@@ -185,6 +189,7 @@ void BookClubMannger::upload_simple_file(const cinatra::request& req, cinatra::r
                 file_info.file_type =  FileTypeOther;
             }
 
+            file_info.id = 0;
             file_info.local_path = file.get_file_path();
             file_info.file_size = file.get_file_size();
             file_info.file_md5 = upload_file_md5;
@@ -695,11 +700,20 @@ void BookClubMannger::get_somebody_information_handle (const cinatra::request &r
 
 void BookClubMannger::change_message_status_handle (const cinatra::request &req, cinatra::response &res)
 {
-    auto message_id = req.get_query_value("message_id");
-    std::string message_id_str = std::string(message_id.data(),message_id.length());
-
-    auto message = DatabaseManager::getInstance ()->get_message (message_id_str);
-
-    message.message_state = 0;
-
+    auto sender_id = req.get_query_value("sender_id");
+    std::string sender_id_str = std::string(sender_id.data(),sender_id.length());
+    auto accepter_id = req.get_query_value("accepter_id");
+    std::string accepter_id_str = std::string(accepter_id.data(),accepter_id.length());
+    nlohmann::json json;
+    if(DatabaseManager::getInstance ()->change_message_status (sender_id_str,accepter_id_str))
+    {
+        json["code"] = 200;
+        json["msg"] = "Message status change success";
+    }
+    else
+    {
+        json["code"] = -100;
+        json["msg"] = "Message status change failed";
+    }
+    res.set_status_and_content(cinatra::status_type::ok,json.dump());
 }

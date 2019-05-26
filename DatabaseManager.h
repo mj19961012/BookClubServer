@@ -30,7 +30,7 @@ public:
     bool insert_file_base_info(file_base_info fileinfo);
     std::vector<message_info> get_message_list (std::string session_id, int message_type = 3);
     bool insert_message(message_info message);
-    bool change_message_status(std::string message_id);
+    bool change_message_status (std::string sender_id, std::string accepter_id);
     std::vector<action_info> get_action_list (int pagesize, int pagenum, std::string city, std::string begintime = "-1", std::string endtime = "-1");
     std::vector<action_info> get_action_list_with_someone (std::string userid, int pagenum, int pagesize = 20);
     action_info get_action_info(std::string action_id);

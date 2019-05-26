@@ -472,9 +472,9 @@ std::vector<interest_list> DatabaseManager::get_someone_interest_list (std::stri
     return std::vector<interest_list> ();
 }
 
-bool DatabaseManager::change_message_status (std::string message_id)
+bool DatabaseManager::change_message_status (std::string sender_id, std::string accepter_id)
 {
-    auto result = m_db.query<message_info>("select * from message_info where message_id = '" + message_id + "'");
+    auto result = m_db.query<message_info>("select * from message_info where sender_id = '" + sender_id + "' and accepter_id = '"+ accepter_id + "'");
 
     int res = INT_MIN;
 
@@ -482,6 +482,7 @@ bool DatabaseManager::change_message_status (std::string message_id)
     {
         for(auto &message : result)
         {
+            message.message_state = 0;
             res = m_db.update<message_info>(message);
         }
     }

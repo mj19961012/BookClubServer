@@ -48,6 +48,7 @@ int main (int argc,char ** argv)
 
         server.set_http_handler<GET, POST>("/clint/message/get_list", &BookClubMannger::get_messages_list_handle, &BC_Manager);
         server.set_http_handler<GET, POST>("/clint/message/send_msg", &BookClubMannger::send_message_handle, &BC_Manager);
+        server.set_http_handler<GET, POST>("/clint/message/change_status", &BookClubMannger::change_message_status_handle, &BC_Manager);
 
         server.set_http_handler<GET, POST>("/clint/article/get_list", &BookClubMannger::get_articles_list_handle, &BC_Manager);
         server.set_http_handler<GET, POST>("/clint/article/get_list_with_someone", &BookClubMannger::get_articles_list_with_someone_handle, &BC_Manager);
