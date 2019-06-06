@@ -316,7 +316,7 @@ void BookClubMannger::get_activities_list_handle (const cinatra::request &req, c
     auto end_time = req.get_query_value("end_time");
     std::string end_time_str = std::string(end_time.data(),end_time.length());
 
-    auto activities = DatabaseManager::getInstance ()->get_action_list (page_num_int,page_size_int,action_city_str,begin_time_str,end_time_str);
+    auto activities = DatabaseManager::getInstance ()->get_action_list (page_size_int,page_num_int,action_city_str,begin_time_str,end_time_str);
 
     nlohmann::json json;
     if(activities.size () > 0)
@@ -333,6 +333,9 @@ void BookClubMannger::get_activities_list_handle (const cinatra::request &req, c
         json["msg"] = "No eligible activities";
         json["size"] = 0;
     }
+
+    std::cout << json.dump() << std::endl;
+
     res.set_status_and_content(cinatra::status_type::ok,json.dump());
 }
 
