@@ -334,7 +334,7 @@ void BookClubMannger::get_activities_list_handle (const cinatra::request &req, c
         json["size"] = 0;
     }
 
-    std::cout << json.dump() << std::endl;
+//    std::cout << json.dump() << std::endl;
 
     res.set_status_and_content(cinatra::status_type::ok,json.dump());
 }
@@ -525,7 +525,7 @@ void BookClubMannger::get_detail_of_the_article_handle (const cinatra::request &
 
     auto article = DatabaseManager::getInstance ()->get_article_info (article_id_str);
     auto commit_list = DatabaseManager::getInstance ()->get_message_list (article_id_str,1);
-    if(article.article_id != "")
+    if(article.article_id.length () > 0)
     {
         json["code"] = 200;
         json["article"] = article;

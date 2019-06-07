@@ -327,9 +327,8 @@ std::vector<action_info> DatabaseManager::get_action_list (int pagesize, int pag
     //"limit 100;"  分页查询数据库
     std::string sql_str_chile = "(select id from action_info where ((begin_time + 0) <  "+ begintime + ")  and ((end_time + 0) >  " + endtime + ") and ((action_city + 0) = " + city + ") limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
     std::string sql_str_main = "select * from action_info where id >= "+ sql_str_chile + "limit " + boost::lexical_cast<std::string> (pagesize) + ";";
-    std::cout << sql_str_main << std::endl;
     auto result = m_db.query<action_info>(sql_str_main);
-    std::cout << result.size () << std::endl;
+//    std::cout << result.size () << std::endl;
     if(!result.empty())
     {
         return result;
@@ -351,10 +350,22 @@ bool DatabaseManager::insert_action (action_info action)
     return res != INT_MIN;
 }
 
-std::vector<article_info> DatabaseManager::get_article_list (int pagesize, int pagenum, std::string article_type)
+std::vector<article_info> DatabaseManager::get_article_list (int pagenum,int pagesize,std::string article_type)
 {
-    std::string sql_str_chile = "(select id from article_info where (article_type = " + article_type +") limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
-    std::string sql_str_main = "select * from article_info where id >= "+ sql_str_chile + " and (article_type = " + article_type + ") limit " + boost::lexical_cast<std::string> (pagesize) + ";";
+    std::string sql_str_chile;
+    std::string sql_str_main;
+
+    if(1 == boost::lexical_cast<int>(article_type))
+    {
+        sql_str_chile = "(select id from article_info where (article_type >= " + article_type +") limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
+        sql_str_main = "select * from article_info where id >= "+ sql_str_chile + " and (article_type >= " + article_type + ") limit " + boost::lexical_cast<std::string> (pagesize) + ";";
+    }
+    else
+    {
+        sql_str_chile = "(select id from article_info where (article_type = " + article_type +") limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
+        sql_str_main = "select * from article_info where id >= "+ sql_str_chile + " and (article_type = " + article_type + ") limit " + boost::lexical_cast<std::string> (pagesize) + ";";
+    }
+
 
     auto result = m_db.query<article_info>(sql_str_main);
 
