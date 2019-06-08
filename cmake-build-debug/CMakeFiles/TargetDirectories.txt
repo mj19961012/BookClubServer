@@ -1,3 +1,0 @@
-D:/CodeProjects/C_Projects/BookClubServer/cmake-build-debug/CMakeFiles/BookClubServer.dir
-D:/CodeProjects/C_Projects/BookClubServer/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/CodeProjects/C_Projects/BookClubServer/cmake-build-debug/CMakeFiles/rebuild_cache.dir

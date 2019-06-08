@@ -1,0 +1,21 @@
+﻿C++ objects and libs
+*.slo
+*.lo
+*.o
+*.a
+*.la
+*.lai
+*.so
+*.dylib
+*.obj
+*.log
+*.exe
+*.ilk
+cmake-build-debug/
+static/
+.idea/
+BookClubConfig.h
+
+*.dll
+*.TTF
+*.mp3

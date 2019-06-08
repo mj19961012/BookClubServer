@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2018.2.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\BookClubServer.dir/objects.a
-D:\include\msys2\mingw64\bin\ar.exe cr CMakeFiles\BookClubServer.dir/objects.a @CMakeFiles\BookClubServer.dir\objects1.rsp
-D:\include\msys2\mingw64\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\BookClubServer.dir/objects.a -Wl,--no-whole-archive  -o BookClubServer.exe -Wl,--out-implib,libBookClubServer.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\BookClubServer.dir\linklibs.rsp

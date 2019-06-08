@@ -1,4 +1,0 @@
-ToolSet: w64 7.0@D:\include\msys2\mingw64
-Options: 
-
-Options:
