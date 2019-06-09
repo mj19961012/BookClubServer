@@ -278,6 +278,7 @@ void BookClubMannger::send_message_handle (const cinatra::request &req, cinatra:
     std::string send_time_str = std::string(send_time.data(),send_time.length());
 
     message_info message;
+    message.id = 0;
     message.message_id = message_id_str;
     message.messgae_body = messgae_body_str;
     message.sender_id = sender_id_str;
@@ -366,6 +367,7 @@ void BookClubMannger::create_new_action_handle (const cinatra::request &req, cin
     std::string release_time_str = std::string(release_time.data(),release_time.length());
 
     action_info action;
+    action.id = 0;
     action.action_id = action_id_str;
     action.action_title = action_title_str;
     action.action_content = action_content_str;
@@ -447,6 +449,7 @@ void BookClubMannger::create_new_article_handle (const cinatra::request &req, ci
     std::string author_id_str = std::string(author_id.data(),author_id.length());
 
     article_info article;
+    article.id = 0;
     article.article_id = article_id_str;
     article.article_title = article_title_str;
     article.article_content = article_content_str;
@@ -616,6 +619,7 @@ void BookClubMannger::follow_somebody_handle (const cinatra::request &req, cinat
     std::string date_str = std::string(date.data(),date.length());
 
     interest_list interest;
+    interest.id = 0;
     interest.interest_id = interest_id_str;
     interest.user_id = user_id_str;
     interest.follower_id = follow_id_str;

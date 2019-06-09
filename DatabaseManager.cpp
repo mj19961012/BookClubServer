@@ -193,7 +193,7 @@ user_info DatabaseManager::get_userinfo(std::string phone_number,std::string pas
 user_info DatabaseManager::get_userinfo_with_userid(std::string user_id)
 {
     std::string sql = "select * from user_info where user_id = '" + user_id + "';";
-    std::cout << sql << std::endl;
+//    std::cout << sql << std::endl;
     auto result = m_db.query<user_info>(sql);
 
     if(!result.empty())
@@ -228,7 +228,7 @@ bool DatabaseManager::insert_userinfo(user_info userinfo)
 
     int res = INT_MIN;
 
-    std::cout << "result_status:" << result.empty () << std::endl;
+//    std::cout << "result_status:" << result.empty () << std::endl;
 
     if (result.empty())
     {
@@ -266,7 +266,7 @@ bool DatabaseManager::insert_file_base_info(file_base_info fileinfo)
 
     int res = INT_MIN;
 
-    std::cout << "result_status:" << result.empty () << std::endl;
+//    std::cout << "result_status:" << result.empty () << std::endl;
 
     if (result.empty())
     {
@@ -341,6 +341,12 @@ bool DatabaseManager::insert_action (action_info action)
         action.id = 0;
         res = m_db.insert<action_info>(action);
     }
+    if(res != INT_MIN)
+    {
+        auto user = get_userinfo_with_userid (action.author_id);
+        user.action_number ++ ;
+        m_db.update<user_info>(user);
+    }
     return res != INT_MIN;
 }
 
@@ -380,6 +386,14 @@ bool DatabaseManager::insert_article (article_info article)
     {
         res = m_db.insert<article_info>(article);
     }
+
+    if(res != INT_MIN)
+    {
+        auto user = get_userinfo_with_userid (article.author_id);
+        user.article_number ++ ;
+        m_db.update<user_info>(user);
+    }
+
     return res != INT_MIN;
 }
 
@@ -423,9 +437,9 @@ void DatabaseManager::update_action (action_info action)
 
 std::vector<article_info> DatabaseManager::get_article_list_with_someone (std::string userid, int pagenum, int pagesize)
 {
-    std::string sql_str_chile = "(select id from article_info where author_id = " + userid +" limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
-    std::string sql_str_main = "select * from article_info where id >= "+ sql_str_chile + " and author_id = " + userid + "limit " + boost::lexical_cast<std::string> (pagesize) + ";";
-
+    std::string sql_str_chile = "(select id from article_info where author_id = '" + userid +"' limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
+    std::string sql_str_main = "select * from article_info where id >= "+ sql_str_chile + " and author_id = '" + userid + "' limit " + boost::lexical_cast<std::string> (pagesize) + ";";
+//    std::cout << sql_str_main << std::endl;
     auto result = m_db.query<article_info>(sql_str_main);
 
     if(!result.empty())
@@ -437,9 +451,9 @@ std::vector<article_info> DatabaseManager::get_article_list_with_someone (std::s
 
 std::vector<action_info> DatabaseManager::get_action_list_with_someone (std::string userid, int pagenum, int pagesize)
 {
-    std::string sql_str_chile = "(select id from action_info where author_id = " + userid +" limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
-    std::string sql_str_main = "select * from action_info where id >= "+ sql_str_chile + " and author_id = " + userid + "limit " + boost::lexical_cast<std::string> (pagesize) + ";";
-
+    std::string sql_str_chile = "(select id from action_info where author_id = '" + userid +"' limit " + boost::lexical_cast<std::string> (pagesize * pagenum) + ",1)";
+    std::string sql_str_main = "select * from action_info where id >= "+ sql_str_chile + " and author_id = '" + userid + "' limit " + boost::lexical_cast<std::string> (pagesize) + ";";
+//    std::cout << sql_str_main << std::endl;
     auto result = m_db.query<action_info>(sql_str_main);
 
     if(!result.empty())
@@ -451,7 +465,7 @@ std::vector<action_info> DatabaseManager::get_action_list_with_someone (std::str
 
 bool DatabaseManager::insert_interest (interest_list interest)
 {
-    auto result = m_db.query<interest_list>("select * from interest_list where interest_id = '" + interest.interest_id + "'");
+    auto result = m_db.query<interest_list>("select * from interest_list where (interest_id = '" + interest.interest_id + "') or (user_id = '" + interest.user_id + "' and follower_id = '" + interest.follower_id + "')");
 
     int res = INT_MIN;
 
@@ -459,6 +473,14 @@ bool DatabaseManager::insert_interest (interest_list interest)
     {
         res = m_db.insert<interest_list>(interest);
     }
+
+    if(res != INT_MIN)
+    {
+        auto user = get_userinfo_with_userid (interest.follower_id);
+        user.funs_number ++ ;
+        m_db.update<user_info>(user);
+    }
+
     return res != INT_MIN;
 }
 
@@ -481,7 +503,7 @@ std::vector<interest_list> DatabaseManager::get_someone_interest_list (std::stri
 bool DatabaseManager::change_message_status (std::string sender_id, std::string session_id, std::string message_type)
 {
     std::string sql = "select * from message_info where sender_id = '" + sender_id + "' and session_id = '"+ session_id + "' and message_type = " + message_type + ";";
-    std::cout << sql << std::endl;
+//    std::cout << sql << std::endl;
     auto result = m_db.query<message_info>(sql);
 
     int res = INT_MIN;
