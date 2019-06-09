@@ -240,7 +240,7 @@ void BookClubMannger::get_messages_list_handle (const cinatra::request &req, cin
     auto userid = req.get_query_value("userid");
     std::string userid_str = std::string(userid.data(),userid.length());
 
-    auto messages = DatabaseManager::getInstance ()->get_message_list (userid_str, 0);
+    auto messages = DatabaseManager::getInstance ()->get_message_list (userid_str, 1);
 
     nlohmann::json json;
     if(messages.size () > 0)
@@ -291,6 +291,7 @@ void BookClubMannger::send_message_handle (const cinatra::request &req, cinatra:
     if(DatabaseManager::getInstance ()->insert_message (message))
     {
         json["code"] = 200;
+        json["message"] = message;
         json["msg"] = "Send a success";
     }
     else
@@ -524,7 +525,7 @@ void BookClubMannger::get_detail_of_the_article_handle (const cinatra::request &
     nlohmann::json json;
 
     auto article = DatabaseManager::getInstance ()->get_article_info (article_id_str);
-    auto commit_list = DatabaseManager::getInstance ()->get_message_list (article_id_str,1);
+    auto commit_list = DatabaseManager::getInstance ()->get_message_list (article_id_str,0);
     if(article.article_id.length () > 0)
     {
         json["code"] = 200;
@@ -705,10 +706,12 @@ void BookClubMannger::change_message_status_handle (const cinatra::request &req,
 {
     auto sender_id = req.get_query_value("sender_id");
     std::string sender_id_str = std::string(sender_id.data(),sender_id.length());
-    auto accepter_id = req.get_query_value("accepter_id");
-    std::string accepter_id_str = std::string(accepter_id.data(),accepter_id.length());
+    auto session_id = req.get_query_value("session_id");
+    std::string session_id_str = std::string(session_id.data(),session_id.length());
+    auto message_type = req.get_query_value("message_type");
+    std::string message_type_str = std::string(message_type.data(),message_type.length());
     nlohmann::json json;
-    if(DatabaseManager::getInstance ()->change_message_status (sender_id_str,accepter_id_str))
+    if(DatabaseManager::getInstance ()->change_message_status (sender_id_str,session_id_str,message_type_str))
     {
         json["code"] = 200;
         json["msg"] = "Message status change success";

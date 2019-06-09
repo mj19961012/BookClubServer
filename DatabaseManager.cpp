@@ -192,8 +192,9 @@ user_info DatabaseManager::get_userinfo(std::string phone_number,std::string pas
 
 user_info DatabaseManager::get_userinfo_with_userid(std::string user_id)
 {
-    auto result = m_db.query<user_info>(
-            "select * from user_info where user_id = '" + user_id + "'");
+    std::string sql = "select * from user_info where user_id = '" + user_id + "';";
+    std::cout << sql << std::endl;
+    auto result = m_db.query<user_info>(sql);
 
     if(!result.empty())
     {
@@ -279,13 +280,13 @@ std::vector<message_info> DatabaseManager::get_message_list (std::string session
 //    auto result = m_db.query<message_info>(
 //            "select * from message_info where accepter_id = '" + session_id + "' and message_state = '1';");
     std::string str_sql;
-    if(0 == message_type)
+    if(1 == message_type)
     {
         str_sql =  "select * from message_info where accepter_id = '" + session_id + "' and message_state = '1';";
     }
-    else if(1 == message_type)
+    else if(0 == message_type)
     {
-        str_sql =  "select * from message_info where session_id = '" + session_id + "' and message_type = '1';";
+        str_sql =  "select * from message_info where session_id = '" + session_id + "' and message_type = '0';";
     }
     else
     {
@@ -295,13 +296,6 @@ std::vector<message_info> DatabaseManager::get_message_list (std::string session
     auto result = m_db.query<message_info>(str_sql);
     if(!result.empty())
     {
-        auto temp_vec = result;
-        for(auto &temp_value:temp_vec)
-        {
-            //返回消息列表之后不要立刻更新数据，点击消息列表时发送标记消息为已读状态的请求，然后更新消息状态。   客户端缓存会话消息列表
-            temp_value.message_state = 0;
-            m_db.update<message_info>(temp_value);
-        }
         return result;
     }
     return std::vector<message_info> ();
@@ -484,9 +478,11 @@ std::vector<interest_list> DatabaseManager::get_someone_interest_list (std::stri
     return std::vector<interest_list> ();
 }
 
-bool DatabaseManager::change_message_status (std::string sender_id, std::string accepter_id)
+bool DatabaseManager::change_message_status (std::string sender_id, std::string session_id, std::string message_type)
 {
-    auto result = m_db.query<message_info>("select * from message_info where sender_id = '" + sender_id + "' and accepter_id = '"+ accepter_id + "'");
+    std::string sql = "select * from message_info where sender_id = '" + sender_id + "' and session_id = '"+ session_id + "' and message_type = " + message_type + ";";
+    std::cout << sql << std::endl;
+    auto result = m_db.query<message_info>(sql);
 
     int res = INT_MIN;
 
